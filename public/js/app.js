@@ -50188,6 +50188,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50282,7 +50289,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 var data = _ref3.data;
 
                 _this2.dismissEnquiryForm();
-                _this2.enquiry_outcome = data;
+                _this2.enquiry_outcome = JSON.stringify(data, null, 4);
                 console.log(data);
             }).catch(function (_ref4) {
                 var error = _ref4.error;
@@ -50696,59 +50703,55 @@ var render = function() {
                       _c("h1", [_vm._v("Summary")]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                Arrival Date : " +
-                            _vm._s(_vm.arrival_date) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("Chosen Date of Arrival")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            _vm._s(_vm._f("displayDate")(_vm.arrival_date))
+                          )
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                No of Guests : " +
-                            _vm._s(_vm.no_of_guests) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("No of Guests")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(_vm.no_of_guests))])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                No of nights : " +
-                            _vm._s(_vm.summary.dates_picked.length) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("No of nights")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(_vm._s(_vm.summary.dates_picked.length))
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                Room Rate (incl taxes) : " +
-                            _vm._s(_vm.summary.room_rates_with_tax) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("Room Rate (incl taxes)")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(_vm._s(_vm.summary.room_rates_with_tax))
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                Room Rate (without taxes) : " +
-                            _vm._s(_vm.summary.room_rates_without_tax) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("Room Rate (without taxes)")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(_vm._s(_vm.summary.room_rates_without_tax))
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                Taxes applied : " +
-                            _vm._s(_vm.summary.tax_applied) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("Taxes applied")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(_vm.summary.tax_applied))])
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _vm._v(
-                          "\n                                Total Booking Cost : " +
-                            _vm._s(_vm.summary.booking_total) +
-                            "\n                            "
-                        )
+                        _c("h2", [_vm._v("Total Booking Cost")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(_vm.summary.booking_total))])
                       ]),
                       _vm._v(" "),
                       _c(
@@ -50765,11 +50768,9 @@ var render = function() {
                       _vm._v(" "),
                       _vm.enquiry_outcome !== null
                         ? _c("div", [
-                            _vm._v(
-                              "\n                                Enquiry outcome\n                                " +
-                                _vm._s(_vm.enquiry_outcome) +
-                                "\n                            "
-                            )
+                            _c("h2", [_vm._v("Enquiry outcome")]),
+                            _vm._v(" "),
+                            _c("pre", [_vm._v(_vm._s(_vm.enquiry_outcome))])
                           ])
                         : _vm._e()
                     ])

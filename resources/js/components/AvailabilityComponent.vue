@@ -91,32 +91,39 @@
                             <div v-if="bookings_available">
                                 <h1>Summary</h1>
                                 <div>
-                                    Arrival Date : {{arrival_date}}
+                                    <h2>Chosen Date of Arrival</h2>
+                                    <p>{{arrival_date | displayDate}}</p>
                                 </div>
                                 <div>
-                                    No of Guests : {{no_of_guests}}
+                                    <h2>No of Guests</h2>
+                                    <p>{{no_of_guests}}</p>
                                 </div>
                                 <div>
-                                    No of nights : {{summary.dates_picked.length}}
+                                    <h2>No of nights</h2>
+                                    <p>{{summary.dates_picked.length}}</p>
                                 </div>
                                 <div>
-                                    Room Rate (incl taxes) : {{summary.room_rates_with_tax}}
+                                    <h2>Room Rate (incl taxes)</h2>
+                                    <p>{{summary.room_rates_with_tax}}</p>
                                 </div>
                                 <div>
-                                    Room Rate (without taxes) : {{summary.room_rates_without_tax}}
+                                    <h2>Room Rate (without taxes)</h2>
+                                    <p>{{summary.room_rates_without_tax}}</p>
                                 </div>
                                 <div>
-                                    Taxes applied : {{summary.tax_applied}}
+                                    <h2>Taxes applied</h2>
+                                    <p>{{summary.tax_applied}}</p>
                                 </div>
                                 <div>
-                                    Total Booking Cost : {{summary.booking_total}}
+                                    <h2>Total Booking Cost</h2>
+                                    <p>{{summary.booking_total}}</p>
                                 </div>
                                 <button class="btn btn-success" @click="newEnquiry">
                                     Enquire <i class="fas fa-user-plus fa-fw"></i>
                                 </button>
                                 <div v-if="enquiry_outcome !== null">
-                                    Enquiry outcome
-                                    {{enquiry_outcome}}
+                                    <h2>Enquiry outcome</h2>
+                                    <pre>{{enquiry_outcome}}</pre>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +258,7 @@
                     "email" : this.enquiry.email,
                 }).then(({ data }) => {
                     this.dismissEnquiryForm();
-                    this.enquiry_outcome = data;
+                    this.enquiry_outcome = JSON.stringify(data, null, 4);
                     console.log(data)
                 })
                 .catch(({ error }) => {
