@@ -1,4 +1,94 @@
+<style scopped>
+    .search-date {
+        font-size: 1.5rem;
+    }
+    .search-date input {
+        font-size: 1.7rem;
+        line-height: 35px;
+        padding-left: 15px;
+        width: 100%;
+    }
+    .fade {
+        opacity : 1;
+    }
+    .calendar-row {
+        min-height: 10rem;
+    }
+    .calendar-row.calender-heading {
+        background-color: orangered;
+        text-align: center;
+        color: white;
+        font-size: 3em;
+    }
 
+    .no-rooms {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+    }
+    .center {
+        text-align: center;
+    }
+    span.middle {
+        height: 90px;
+        line-height: 90px;
+    }
+
+    .calendar-row:not(.calender-heading):nth-of-type(2n) {
+        background-color: lightgreen;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n+1) {
+        background-color: cadetblue;
+    }
+
+    .calendar-object {
+        float: left;
+        min-height: 100px;
+    }
+
+    .calendar-day {
+        width: 20%;
+    }
+
+    .calendar-rooms {
+        width: 80%;
+    }
+    .text-size-1 {
+        font-size: 1em;
+    }
+    .text-size-2 {
+        font-size: 2em;
+    }
+    .text-size-3 {
+        font-size: 3em;
+    }
+    .text-size-4 {
+        font-size: 4em;
+    }
+    .text-size-5 {
+        font-size: 5em;
+    }
+    .text-size-6 {
+        font-size: 6em;
+    }
+    .box {
+        width: 11em;
+        height: 11em;
+        padding: 0.5em;
+        box-sizing: border-box
+    }
+
+    .availability {
+        vertical-align: top;
+        min-heignt: 20px;
+    }
+    .carousel-control {
+        height: 10%;
+        width: 10%;
+        background-image: unset !important;
+    }
+
+</style>
 <template>
     <div class="container">
         <div class="row justify-content-center">
@@ -24,7 +114,7 @@
                             </div>
                             <div class="search-button" style="width: 20%; margin: 0;display: block; float: left;">
                                 <button class="btn btn-success" @click="checkAvailability">
-                                    Search <i class="fas fa-user-plus fa-fw"></i>
+                                    Search <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -35,38 +125,49 @@
                             <div id="myCarousel" class="carousel slide" data-interval="false" data-wrap="false" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    <li data-target="#myCarousel" v-for="(item, index) in weekly_result" v-bind:data-slide-to="index" :class="{ 'active': index == 0 }"></li>
                                 </ol>
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div v-for="(item, index) in weekly_result" class="item" :class="{ 'active': index == 0 }">
-                                        Week {{ index + 1 }}
-                                        <div v-for="(date_rooms, date) in item" style="width: 60%; margin: 10% 20%;">
-                                            <div class="calendar-date">
-                                                {{ date | displayDate}}
+                                        <div class="calendar-row calender-heading">
+                                            <span class="middle">Weekly Availability</span>
+                                        </div>
+                                        <div class="calendar-row" v-for="(date_rooms, date) in item">
+                                            <div class="calendar-object calendar-day box date-box">
+                                                <div class="day-of-week center text-size-2">
+                                                    {{ date | displayDayOfWeek }}
+                                                </div>
+                                                <div class="day center text-size-3">
+                                                    {{ date | displayDay}}
+                                                </div>
+                                                <div class="calendar-date center text-size-1">
+                                                    {{ date | displayMonth }} {{ date | displayYear }}
+                                                </div>
                                             </div>
-                                            <div class="calendar-rooms">
-                                                <div class="room" v-for="(room, room_no) in date_rooms">
-                                                    {{ room_no }}
+                                            <div class="calendar-object calendar-rooms">
+                                                <div v-if=" Object.keys(date_rooms).length == 0" class="no-rooms">
+                                                    <span class="middle">No Rooms Available</span>
+                                                </div>
+                                                <div class="room box" style="float: left;" v-for="(room, room_no) in date_rooms">
                                                     <div v-if="room_dictionary.hasOwnProperty(room_no)">
                                                         <p>{{ room_dictionary[room_no]['name'] }}</p>
-                                                        <p>Bedrooms: {{ room_dictionary[room_no]['bedrooms'] }}</p>
-                                                        <p>Maximum guests{{ room_dictionary[room_no]['max_guests'] }}</p>
+                                                        <span><i class="fa fa-bed"> </i> {{ room_dictionary[room_no]['bedrooms'] }}</span>
+                                                        <span><i class="fa fa-users"></i> {{ room_dictionary[room_no]['max_guests'] }}</span>
                                                         <p>
-                                                            NZD {{ (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'] }}
+                                                            <i class="far fa-money-bill-alt"></i>
+                                                            {{ booking_property.currency}} {{ (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'] }}
                                                             ( {{ (room_dictionary[room_no]['tax_inclusive']) ? "Includes Taxes" : "taxes Extra" }} )
                                                         </p>
-                                                        <input type="checkbox"
-                                                               v-if="room.available == 1"
-                                                               @change="handleChange($event, date, room_no, (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'], room_dictionary[room_no]['tax_inclusive'])"
-                                                               :disabled="this.bookings_available || (summary.hasOwnProperty('room_no') && summary.room_no !== -1 && summary.room_no !== room_no)">
-                                                        <div v-if="room.available == 1">
+                                                        <div class="availability avail-yes" v-if="room.available == 1">
                                                             Available
+                                                            <input type="checkbox"
+                                                                   v-if="room.available == 1"
+                                                                   @change="handleChange($event, date, room_no, (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'], room_dictionary[room_no]['tax_inclusive'])"
+                                                                   :disabled="this.bookings_available || (summary.hasOwnProperty('room_no') && summary.room_no !== -1 && summary.room_no !== room_no)">
                                                         </div>
-                                                        <div v-if="room.available != 1">
+                                                        <div class="availability avail-no" v-if="room.available != 1">
                                                             Not Available
                                                         </div>
                                                     </div>
@@ -332,18 +433,3 @@
         },
     }
 </script>
-<style scopped>
-    .search-date {
-        font-size: 1.5rem;
-    }
-.search-date input {
-    font-size: 1.7rem;
-    line-height: 35px;
-    padding-left: 15px;
-    width: 100%;
-}
-.fade {
-    opacity : 1;
-}
-
-</style>

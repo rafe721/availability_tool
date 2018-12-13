@@ -35998,6 +35998,22 @@ window.moment = __WEBPACK_IMPORTED_MODULE_4_moment___default.a;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
+Vue.filter("displayDayOfWeek", function (aDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('ddd').toUpperCase();
+});
+
+Vue.filter("displayDay", function (aDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('DD').toUpperCase();
+});
+
+Vue.filter("displayMonth", function (aDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('MMM');
+});
+
+Vue.filter("displayYear", function (aDate) {
+    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('YYYY');
+});
+
 Vue.filter("displayDate", function (aDate) {
     return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('MMMM DD YYYY');
 });
@@ -50195,6 +50211,107 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50470,7 +50587,7 @@ var render = function() {
                       },
                       [
                         _vm._v("\n                                Search "),
-                        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                        _c("i", { staticClass: "fa fa-search" })
                       ]
                     )
                   ]
@@ -50499,7 +50616,20 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(0),
+                    _c(
+                      "ol",
+                      { staticClass: "carousel-indicators" },
+                      _vm._l(_vm.weekly_result, function(item, index) {
+                        return _c("li", {
+                          class: { active: index == 0 },
+                          attrs: {
+                            "data-target": "#myCarousel",
+                            "data-slide-to": index
+                          }
+                        })
+                      }),
+                      0
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -50512,166 +50642,269 @@ var render = function() {
                             class: { active: index == 0 }
                           },
                           [
-                            _vm._v(
-                              "\n                                    Week " +
-                                _vm._s(index + 1) +
-                                "\n                                    "
-                            ),
+                            _vm._m(0, true),
+                            _vm._v(" "),
                             _vm._l(item, function(date_rooms, date) {
                               return _c(
                                 "div",
-                                {
-                                  staticStyle: {
-                                    width: "60%",
-                                    margin: "10% 20%"
-                                  }
-                                },
+                                { staticClass: "calendar-row" },
                                 [
-                                  _c("div", { staticClass: "calendar-date" }, [
-                                    _vm._v(
-                                      "\n                                            " +
-                                        _vm._s(_vm._f("displayDate")(date)) +
-                                        "\n                                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "calendar-rooms" },
-                                    _vm._l(date_rooms, function(room, room_no) {
-                                      return _c(
+                                    {
+                                      staticClass:
+                                        "calendar-object calendar-day box date-box"
+                                    },
+                                    [
+                                      _c(
                                         "div",
-                                        { staticClass: "room" },
+                                        {
+                                          staticClass:
+                                            "day-of-week center text-size-2"
+                                        },
                                         [
                                           _vm._v(
                                             "\n                                                " +
-                                              _vm._s(room_no) +
-                                              "\n                                                "
-                                          ),
-                                          _vm.room_dictionary.hasOwnProperty(
-                                            room_no
+                                              _vm._s(
+                                                _vm._f("displayDayOfWeek")(date)
+                                              ) +
+                                              "\n                                            "
                                           )
-                                            ? _c("div", [
-                                                _c("p", [
-                                                  _vm._v(
-                                                    _vm._s(
-                                                      _vm.room_dictionary[
-                                                        room_no
-                                                      ]["name"]
-                                                    )
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "Bedrooms: " +
-                                                      _vm._s(
-                                                        _vm.room_dictionary[
-                                                          room_no
-                                                        ]["bedrooms"]
-                                                      )
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "Maximum guests" +
-                                                      _vm._s(
-                                                        _vm.room_dictionary[
-                                                          room_no
-                                                        ]["max_guests"]
-                                                      )
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "\n                                                        NZD " +
-                                                      _vm._s(
-                                                        room.hasOwnProperty(
-                                                          "rate"
-                                                        )
-                                                          ? room.rate
-                                                          : _vm.room_dictionary[
-                                                              room_no
-                                                            ]["default_rate"]
-                                                      ) +
-                                                      "\n                                                        ( " +
-                                                      _vm._s(
-                                                        _vm.room_dictionary[
-                                                          room_no
-                                                        ]["tax_inclusive"]
-                                                          ? "Includes Taxes"
-                                                          : "taxes Extra"
-                                                      ) +
-                                                      " )\n                                                    "
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                room.available == 1
-                                                  ? _c("input", {
-                                                      attrs: {
-                                                        type: "checkbox",
-                                                        disabled:
-                                                          this
-                                                            .bookings_available ||
-                                                          (_vm.summary.hasOwnProperty(
-                                                            "room_no"
-                                                          ) &&
-                                                            _vm.summary
-                                                              .room_no !== -1 &&
-                                                            _vm.summary
-                                                              .room_no !==
-                                                              room_no)
-                                                      },
-                                                      on: {
-                                                        change: function(
-                                                          $event
-                                                        ) {
-                                                          _vm.handleChange(
-                                                            $event,
-                                                            date,
-                                                            room_no,
-                                                            room.hasOwnProperty(
-                                                              "rate"
-                                                            )
-                                                              ? room.rate
-                                                              : _vm
-                                                                  .room_dictionary[
-                                                                  room_no
-                                                                ][
-                                                                  "default_rate"
-                                                                ],
-                                                            _vm.room_dictionary[
-                                                              room_no
-                                                            ]["tax_inclusive"]
-                                                          )
-                                                        }
-                                                      }
-                                                    })
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                room.available == 1
-                                                  ? _c("div", [
-                                                      _vm._v(
-                                                        "\n                                                        Available\n                                                    "
-                                                      )
-                                                    ])
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                room.available != 1
-                                                  ? _c("div", [
-                                                      _vm._v(
-                                                        "\n                                                        Not Available\n                                                    "
-                                                      )
-                                                    ])
-                                                  : _vm._e()
-                                              ])
-                                            : _vm._e()
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "day center text-size-3"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(
+                                                _vm._f("displayDay")(date)
+                                              ) +
+                                              "\n                                            "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "calendar-date center text-size-1"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(
+                                                _vm._f("displayMonth")(date)
+                                              ) +
+                                              " " +
+                                              _vm._s(
+                                                _vm._f("displayYear")(date)
+                                              ) +
+                                              "\n                                            "
+                                          )
                                         ]
                                       )
-                                    }),
-                                    0
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "calendar-object calendar-rooms"
+                                    },
+                                    [
+                                      Object.keys(date_rooms).length == 0
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "no-rooms" },
+                                            [
+                                              _c(
+                                                "span",
+                                                { staticClass: "middle" },
+                                                [_vm._v("No Rooms Available")]
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm._l(date_rooms, function(
+                                        room,
+                                        room_no
+                                      ) {
+                                        return _c(
+                                          "div",
+                                          {
+                                            staticClass: "room box",
+                                            staticStyle: { float: "left" }
+                                          },
+                                          [
+                                            _vm.room_dictionary.hasOwnProperty(
+                                              room_no
+                                            )
+                                              ? _c("div", [
+                                                  _c("p", [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        _vm.room_dictionary[
+                                                          room_no
+                                                        ]["name"]
+                                                      )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("span", [
+                                                    _c("i", {
+                                                      staticClass: "fa fa-bed"
+                                                    }),
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.room_dictionary[
+                                                            room_no
+                                                          ]["bedrooms"]
+                                                        )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("span", [
+                                                    _c("i", {
+                                                      staticClass: "fa fa-users"
+                                                    }),
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm.room_dictionary[
+                                                            room_no
+                                                          ]["max_guests"]
+                                                        )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("p", [
+                                                    _c("i", {
+                                                      staticClass:
+                                                        "far fa-money-bill-alt"
+                                                    }),
+                                                    _vm._v(
+                                                      "\n                                                        " +
+                                                        _vm._s(
+                                                          _vm.booking_property
+                                                            .currency
+                                                        ) +
+                                                        " " +
+                                                        _vm._s(
+                                                          room.hasOwnProperty(
+                                                            "rate"
+                                                          )
+                                                            ? room.rate
+                                                            : _vm
+                                                                .room_dictionary[
+                                                                room_no
+                                                              ]["default_rate"]
+                                                        ) +
+                                                        "\n                                                        ( " +
+                                                        _vm._s(
+                                                          _vm.room_dictionary[
+                                                            room_no
+                                                          ]["tax_inclusive"]
+                                                            ? "Includes Taxes"
+                                                            : "taxes Extra"
+                                                        ) +
+                                                        " )\n                                                    "
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  room.available == 1
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "availability avail-yes"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                                        Available\n                                                        "
+                                                          ),
+                                                          room.available == 1
+                                                            ? _c("input", {
+                                                                attrs: {
+                                                                  type:
+                                                                    "checkbox",
+                                                                  disabled:
+                                                                    this
+                                                                      .bookings_available ||
+                                                                    (_vm.summary.hasOwnProperty(
+                                                                      "room_no"
+                                                                    ) &&
+                                                                      _vm
+                                                                        .summary
+                                                                        .room_no !==
+                                                                        -1 &&
+                                                                      _vm
+                                                                        .summary
+                                                                        .room_no !==
+                                                                        room_no)
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.handleChange(
+                                                                      $event,
+                                                                      date,
+                                                                      room_no,
+                                                                      room.hasOwnProperty(
+                                                                        "rate"
+                                                                      )
+                                                                        ? room.rate
+                                                                        : _vm
+                                                                            .room_dictionary[
+                                                                            room_no
+                                                                          ][
+                                                                            "default_rate"
+                                                                          ],
+                                                                      _vm
+                                                                        .room_dictionary[
+                                                                        room_no
+                                                                      ][
+                                                                        "tax_inclusive"
+                                                                      ]
+                                                                    )
+                                                                  }
+                                                                }
+                                                              })
+                                                            : _vm._e()
+                                                        ]
+                                                      )
+                                                    : _vm._e(),
+                                                  _vm._v(" "),
+                                                  room.available != 1
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "availability avail-no"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                                        Not Available\n                                                    "
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ])
+                                              : _vm._e()
+                                          ]
+                                        )
+                                      })
+                                    ],
+                                    2
                                   )
                                 ]
                               )
@@ -50925,19 +51158,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "carousel-indicators" }, [
-      _c("li", {
-        staticClass: "active",
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
-      })
+    return _c("div", { staticClass: "calendar-row calender-heading" }, [
+      _c("span", { staticClass: "middle" }, [_vm._v("Weekly Availability")])
     ])
   },
   function() {
@@ -67957,7 +68179,7 @@ exports = module.exports = __webpack_require__(49)(false);
 
 
 // module
-exports.push([module.i, "\n.search-date {\n        font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 100%;\n}\n.fade {\n    opacity : 1;\n}\n\n", ""]);
+exports.push([module.i, "\n.search-date {\n    font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 100%;\n}\n.fade {\n    opacity : 1;\n}\n.calendar-row {\n    min-height: 10rem;\n}\n.calendar-row.calender-heading {\n    background-color: orangered;\n    text-align: center;\n    color: white;\n    font-size: 3em;\n}\n.no-rooms {\n    text-align: center;\n    color: white;\n    font-size: 2em;\n}\n.center {\n    text-align: center;\n}\nspan.middle {\n    height: 90px;\n    line-height: 90px;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) {\n    background-color: lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) {\n    background-color: cadetblue;\n}\n.calendar-object {\n    float: left;\n    min-height: 100px;\n}\n.calendar-day {\n    width: 20%;\n}\n.calendar-rooms {\n    width: 80%;\n}\n.text-size-1 {\n    font-size: 1em;\n}\n.text-size-2 {\n    font-size: 2em;\n}\n.text-size-3 {\n    font-size: 3em;\n}\n.text-size-4 {\n    font-size: 4em;\n}\n.text-size-5 {\n    font-size: 5em;\n}\n.text-size-6 {\n    font-size: 6em;\n}\n.box {\n    width: 11em;\n    height: 11em;\n    padding: 0.5em;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box\n}\n.availability {\n    vertical-align: top;\n    min-heignt: 20px;\n}\n.carousel-control {\n    height: 10%;\n    width: 10%;\n    background-image: unset !important;\n}\n\n", ""]);
 
 // exports
 
