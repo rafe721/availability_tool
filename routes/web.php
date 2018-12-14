@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get('/', function () { return view('welcome'); });
 
-//Route::get('/{any}', 'AvailabilityController@index')->where('any', '.*');
-Route::get('/availability', 'AvailabilityController@index')->where('any', '.*');
-
-Route::get('/test', 'AvailabilityController@test');
+Route::get('/{any}', 'AvailabilityController@index')->where('any', '.*');
+//Route::get('/availability', 'AvailabilityController@index');

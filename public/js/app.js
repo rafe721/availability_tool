@@ -49233,200 +49233,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -49535,13 +49341,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this2.dismissEnquiryForm();
                 _this2.enquiry_outcome = JSON.stringify(data, null, 4);
-                console.log(data);
             }).catch(function (_ref3) {
                 var error = _ref3.error;
 
                 _this2.dismissEnquiryForm();
                 _this2.enquiry_outcome = "There was an error making your enquiry. Please refresh the page and try again.";
-                console.log(error);
+                // console.log(error);
             });
         },
 
@@ -49593,7 +49398,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     room_rate_sum_with_tax += date_info.rate;
                 } else {
                     room_rate_sum_without_tax += date_info.rate;
-                    console.log(this.booking_property);
                     room_rate_taxes_applied += date_info.rate * this.booking_property.tax / 100;
                 }
             }
@@ -49875,181 +49679,190 @@ var render = function() {
                                             _vm.room_dictionary.hasOwnProperty(
                                               room_no
                                             )
-                                              ? _c("div", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass: "box-title"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.room_dictionary[
-                                                            room_no
-                                                          ]["name"]
-                                                        )
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass: "box-content"
-                                                    },
-                                                    [
-                                                      _c("span", [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-bed"
-                                                        }),
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "room-wrapper"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "box-title"
+                                                      },
+                                                      [
                                                         _vm._v(
-                                                          " " +
-                                                            _vm._s(
-                                                              _vm
-                                                                .room_dictionary[
-                                                                room_no
-                                                              ]["bedrooms"]
-                                                            )
-                                                        )
-                                                      ]),
-                                                      _vm._v(
-                                                        " |\n                                                        "
-                                                      ),
-                                                      _c("span", [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-users"
-                                                        }),
-                                                        _vm._v(
-                                                          " " +
-                                                            _vm._s(
-                                                              _vm
-                                                                .room_dictionary[
-                                                                room_no
-                                                              ]["max_guests"]
-                                                            )
-                                                        )
-                                                      ])
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("div", [
-                                                    _c("i", {
-                                                      staticClass:
-                                                        "far fa-money-bill-alt"
-                                                    }),
-                                                    _vm._v(
-                                                      "\n                                                        " +
-                                                        _vm._s(
-                                                          _vm.booking_property
-                                                            .currency
-                                                        ) +
-                                                        " " +
-                                                        _vm._s(
-                                                          room.hasOwnProperty(
-                                                            "rate"
+                                                          _vm._s(
+                                                            _vm.room_dictionary[
+                                                              room_no
+                                                            ]["name"]
                                                           )
-                                                            ? room.rate
-                                                            : _vm
-                                                                .room_dictionary[
-                                                                room_no
-                                                              ]["default_rate"]
-                                                        ) +
-                                                        "\n                                                        ( " +
-                                                        _vm._s(
-                                                          _vm.room_dictionary[
-                                                            room_no
-                                                          ]["tax_inclusive"]
-                                                            ? "Inc Tax"
-                                                            : " + Tax"
-                                                        ) +
-                                                        " )\n                                                    "
-                                                    )
-                                                  ]),
-                                                  _vm._v(" "),
-                                                  room.available == 1
-                                                    ? _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "box-content availability avail-yes"
-                                                        },
-                                                        [
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "box-content"
+                                                      },
+                                                      [
+                                                        _c("span", [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "fa fa-bed"
+                                                          }),
                                                           _vm._v(
-                                                            "\n                                                        Available\n                                                        "
-                                                          ),
-                                                          room.available == 1
-                                                            ? _c("input", {
-                                                                attrs: {
-                                                                  type:
-                                                                    "checkbox",
-                                                                  name:
-                                                                    date +
-                                                                    room_no,
-                                                                  disabled:
-                                                                    this
-                                                                      .bookings_available ||
-                                                                    (_vm.summary.hasOwnProperty(
-                                                                      "room_no"
-                                                                    ) &&
-                                                                      _vm
-                                                                        .summary
-                                                                        .room_no !==
-                                                                        -1 &&
-                                                                      _vm
-                                                                        .summary
-                                                                        .room_no !==
-                                                                        room_no)
-                                                                },
-                                                                on: {
-                                                                  change: function(
-                                                                    $event
-                                                                  ) {
-                                                                    _vm.handleCheckboxChange(
-                                                                      $event,
-                                                                      date,
+                                                            " " +
+                                                              _vm._s(
+                                                                _vm
+                                                                  .room_dictionary[
+                                                                  room_no
+                                                                ]["bedrooms"]
+                                                              )
+                                                          )
+                                                        ]),
+                                                        _vm._v(
+                                                          " |\n                                                        "
+                                                        ),
+                                                        _c("span", [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "fa fa-users"
+                                                          }),
+                                                          _vm._v(
+                                                            " " +
+                                                              _vm._s(
+                                                                _vm
+                                                                  .room_dictionary[
+                                                                  room_no
+                                                                ]["max_guests"]
+                                                              )
+                                                          )
+                                                        ])
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("div", [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "far fa-money-bill-alt"
+                                                      }),
+                                                      _vm._v(
+                                                        "\n                                                        " +
+                                                          _vm._s(
+                                                            _vm.booking_property
+                                                              .currency
+                                                          ) +
+                                                          " " +
+                                                          _vm._s(
+                                                            room.hasOwnProperty(
+                                                              "rate"
+                                                            )
+                                                              ? room.rate
+                                                              : _vm
+                                                                  .room_dictionary[
+                                                                  room_no
+                                                                ][
+                                                                  "default_rate"
+                                                                ]
+                                                          ) +
+                                                          "\n                                                        ( " +
+                                                          _vm._s(
+                                                            _vm.room_dictionary[
+                                                              room_no
+                                                            ]["tax_inclusive"]
+                                                              ? "Inc Tax"
+                                                              : " + Tax"
+                                                          ) +
+                                                          " )\n                                                    "
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    room.available == 1
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "box-content availability avail-yes"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                        Available\n                                                        "
+                                                            ),
+                                                            room.available == 1
+                                                              ? _c("input", {
+                                                                  attrs: {
+                                                                    type:
+                                                                      "checkbox",
+                                                                    name:
+                                                                      date +
                                                                       room_no,
-                                                                      room.hasOwnProperty(
-                                                                        "rate"
+                                                                    disabled:
+                                                                      this
+                                                                        .bookings_available ||
+                                                                      (_vm.summary.hasOwnProperty(
+                                                                        "room_no"
+                                                                      ) &&
+                                                                        _vm
+                                                                          .summary
+                                                                          .room_no !==
+                                                                          -1 &&
+                                                                        _vm
+                                                                          .summary
+                                                                          .room_no !==
+                                                                          room_no)
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      _vm.handleCheckboxChange(
+                                                                        $event,
+                                                                        date,
+                                                                        room_no,
+                                                                        room.hasOwnProperty(
+                                                                          "rate"
+                                                                        )
+                                                                          ? room.rate
+                                                                          : _vm
+                                                                              .room_dictionary[
+                                                                              room_no
+                                                                            ][
+                                                                              "default_rate"
+                                                                            ],
+                                                                        _vm
+                                                                          .room_dictionary[
+                                                                          room_no
+                                                                        ][
+                                                                          "tax_inclusive"
+                                                                        ]
                                                                       )
-                                                                        ? room.rate
-                                                                        : _vm
-                                                                            .room_dictionary[
-                                                                            room_no
-                                                                          ][
-                                                                            "default_rate"
-                                                                          ],
-                                                                      _vm
-                                                                        .room_dictionary[
-                                                                        room_no
-                                                                      ][
-                                                                        "tax_inclusive"
-                                                                      ]
-                                                                    )
+                                                                    }
                                                                   }
-                                                                }
-                                                              })
-                                                            : _vm._e()
-                                                        ]
-                                                      )
-                                                    : _vm._e(),
-                                                  _vm._v(" "),
-                                                  room.available != 1
-                                                    ? _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "box-content availability avail-no"
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                                        Not Available\n                                                    "
-                                                          )
-                                                        ]
-                                                      )
-                                                    : _vm._e()
-                                                ])
+                                                                })
+                                                              : _vm._e()
+                                                          ]
+                                                        )
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    room.available != 1
+                                                      ? _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "box-content availability avail-no"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                        Not Available\n                                                    "
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _vm._e()
+                                                  ]
+                                                )
                                               : _vm._e()
                                           ]
                                         )
@@ -67401,7 +67214,7 @@ exports = module.exports = __webpack_require__(49)(false);
 
 
 // module
-exports.push([module.i, "\npre {\n    font-size: 1.5em;\n}\n.text-size-1 {\n    font-size: 1em;\n}\n.text-size-2 {\n    font-size: 2em;\n}\n.text-size-3 {\n    font-size: 3em;\n}\n.text-size-4 {\n    font-size: 4em;\n}\n.text-size-5 {\n    font-size: 5em;\n}\n.text-size-6 {\n    font-size: 6em;\n}\n.search-input {\n    width: 80%;\n    float: left;\n}\n.search-date {\n    width: 50%;\n    margin: 0px;\n    display: block;\n    float: left;\n    font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 95%;\n}\n.search-spinner {\n    width: 20%;\n    display: block;\n    float: left;\n}\n.search-button {\n    width: 20%;\n    margin: 0;\n    display: block;\n    float: left;\n}\n.fade {\n    opacity : 1;\n}\n.calendar-row {\n    min-height: 10rem;\n}\n.calendar-row.calender-heading {\n    background-color: orangered;\n    text-align: center;\n    color: white;\n    font-size: 3em;\n}\n.no-rooms {\n    text-align: center;\n    color: white;\n    font-size: 2em;\n}\n.center {\n    text-align: center;\n}\n.middle {\n    height: 90px;\n    line-height: 90px;\n}\n.calendar-object {\n    float: left;\n    min-height: 100px;\n}\n.calendar-day {\n    width: 20%;\n}\n.calendar-rooms {\n    width: 80%;\n}\n.box {\n    width: 11em;\n    height: 11em;\n    padding: 1em;\n    float: left;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.box .box-title {\n    height: 25px;\n    overflow: hidden;\n    font-size: 1.5em;\n}\n.box .box-content {\n    font-size: 1.2em;\n}\n.box.date-box {\n    background: whitesmoke;\n}\n.box.not-available {\n    background: orangered; /* always */\n}\n\n/* finally, alternative styling for  */\n.calendar-row:not(.calender-heading):nth-of-type(2n) {\n    background-color: lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) {\n    background-color: cadetblue;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box {\n    border-bottom: 0.5px solid lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box {\n    border-bottom: 0.5px solid cadetblue;\n}\n.calendar-row:not(.calender-heading) .box:not(.date-box){\n    color: whitesmoke;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: darkslategrey;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: dimgray;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: blueviolet;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: greenyellow;\n}\n.selection-summary {\n    width: 30%;\n    float: left;\n    padding: 1em 2em;\n}\n.summary-content {\n    border: 1px solid black;\n    border-radius: 5px;\n}\n.summary-content h1 {\n    padding: 1em 0.5em;\n}\n.summary-content div h2 {\n    background: gray;\n    color: white;\n    padding: 0.5em;\n}\n.summary-content div p {\n    padding: 0.5em 1em 0;\n    font-size: 1.4em;\n}\n.summary-content div span {\n    padding: 0.5em 1em 0;\n    font-size: 1.2em;\n}\n.summary-buttons {\n    margin-bottom: 1em;\n}\n.availability {\n    vertical-align: top;\n    min-height: 20px;\n}\n.btn {\n    font-size: 2em;\n    height: 36px;\n}\n.carousel-control {\n    height: 10%;\n    width: 10%;\n    background-image: unset !important;\n}\n.carousel-indicators {\n    bottom: unset;\n    top: 0.5em;\n    left: 3em;\n}\n.carousel-indicators li {\n    margin-top: 4px;\n}\n\n", ""]);
+exports.push([module.i, "\npre {\n    font-size: 1.5em;\n}\n.text-size-1 {\n    font-size: 1em;\n}\n.text-size-2 {\n    font-size: 2em;\n}\n.text-size-3 {\n    font-size: 3em;\n}\n.text-size-4 {\n    font-size: 4em;\n}\n.text-size-5 {\n    font-size: 5em;\n}\n.text-size-6 {\n    font-size: 6em;\n}\n.search-input {\n    width: 80%;\n    float: left;\n}\n.search-date {\n    width: 50%;\n    margin: 0px;\n    display: block;\n    float: left;\n    font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 95%;\n}\n.search-spinner {\n    width: 20%;\n    display: block;\n    float: left;\n}\n.search-button {\n    width: 20%;\n    margin: 0;\n    display: block;\n    float: left;\n}\n.fade {\n    opacity : 1;\n}\n.calendar-row {\n    min-height: 10rem;\n}\n.calendar-row.calender-heading {\n    background-color: orangered;\n    text-align: center;\n    color: white;\n    font-size: 3em;\n}\n.no-rooms {\n    text-align: center;\n    color: white;\n    font-size: 2em;\n}\n.center {\n    text-align: center;\n}\n.middle {\n    height: 90px;\n    line-height: 90px;\n}\n.calendar-object {\n    float: left;\n    min-height: 100px;\n}\n.calendar-day {\n    width: 20%;\n}\n.calendar-rooms {\n    width: 80%;\n}\n.box {\n    width: 11em;\n    height: 11em;\n    padding: 1em;\n    float: left;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.box .box-title {\n    height: 25px;\n    overflow: hidden;\n    font-size: 1.5em;\n}\n.box .box-content {\n    font-size: 1.2em;\n}\n.box.date-box {\n    background: whitesmoke;\n}\n.box.not-available {\n    background: orangered; /* always */\n}\n\n/* finally, alternative styling for  */\n.calendar-row:not(.calender-heading):nth-of-type(2n) {\n    background-color: lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) {\n    background-color: cadetblue;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box {\n    border-bottom: 0.5px solid lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box {\n    border-bottom: 0.5px solid cadetblue;\n}\n.calendar-row:not(.calender-heading) .box:not(.date-box){\n    color: whitesmoke;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: darkslategrey;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: dimgray;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: blueviolet;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: greenyellow;\n}\n.selection-summary {\n    width: 30%;\n    float: left;\n    padding: 1em 2em;\n}\n.summary-content {\n    border: 1px solid black;\n    border-radius: 5px;\n}\n.summary-content h1 {\n    padding: 1em 0.5em;\n}\n.summary-content div h2 {\n    background: gray;\n    color: white;\n    padding: 0.5em;\n}\n.summary-content div p {\n    padding: 0.5em 1em 0;\n    font-size: 1.4em;\n}\n.summary-content div span {\n    padding: 0.5em 1em 0;\n    font-size: 1.2em;\n}\n.summary-buttons {\n    margin-bottom: 1em;\n}\n.availability {\n    vertical-align: top;\n    min-height: 20px;\n}\n.btn {\n    font-size: 2em;\n    height: 36px;\n}\n.carousel-control {\n    height: 10%;\n    width: 10%;\n    background-image: unset !important;\n}\n.carousel-indicators {\n    bottom: unset;\n    top: 0.5em;\n    left: 3em;\n}\n.carousel-indicators li {\n    margin-top: 4px;\n}\n", ""]);
 
 // exports
 
