@@ -35970,16 +35970,12 @@ module.exports = __webpack_require__(46);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vform__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vform___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vform__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_number_input_spinner__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_number_input_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_number_input_spinner__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_number_spinner__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_number_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_number_spinner__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Formatter__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_number_input_spinner__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_number_input_spinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_number_input_spinner__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Formatter__ = __webpack_require__(52);
 
 __webpack_require__(12);
 
@@ -35990,41 +35986,32 @@ window.Vue = __webpack_require__(36);
 
 
 
+window.moment = __WEBPACK_IMPORTED_MODULE_2_moment___default.a;
 
-
-window.Form = __WEBPACK_IMPORTED_MODULE_0_vform__["Form"];
-window.moment = __WEBPACK_IMPORTED_MODULE_4_moment___default.a;
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
-
+// Filters to format dates in the Front ent..
 Vue.filter("displayDayOfWeek", function (aDate) {
-    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('ddd').toUpperCase();
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('ddd').toUpperCase();
 });
-
+Vue.filter("displayDayOfWeekFull", function (aDate) {
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('dddd');
+});
 Vue.filter("displayDay", function (aDate) {
-    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('DD').toUpperCase();
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('DD').toUpperCase();
 });
-
 Vue.filter("displayMonth", function (aDate) {
-    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('MMM');
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('MMM');
 });
-
 Vue.filter("displayYear", function (aDate) {
-    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('YYYY');
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('YYYY');
 });
-
 Vue.filter("displayDate", function (aDate) {
-    return __WEBPACK_IMPORTED_MODULE_4_moment___default()(aDate).format('MMMM DD YYYY');
+    return __WEBPACK_IMPORTED_MODULE_2_moment___default()(aDate).format('MMMM DD YYYY');
 });
 
-Vue.prototype.$formatter = new __WEBPACK_IMPORTED_MODULE_5__Formatter__["a" /* default */]();
-Vue.component('datepicker', __WEBPACK_IMPORTED_MODULE_1_vuejs_datepicker__["a" /* default */]);
-Vue.component('NumberInputSpinner', __WEBPACK_IMPORTED_MODULE_2_vue_number_input_spinner___default.a);
-Vue.component('vue-number-spinner', __WEBPACK_IMPORTED_MODULE_3_vue_number_spinner___default.a);
-
-Vue.component(__WEBPACK_IMPORTED_MODULE_0_vform__["HasError"].name, __WEBPACK_IMPORTED_MODULE_0_vform__["HasError"]);
-Vue.component(__WEBPACK_IMPORTED_MODULE_0_vform__["AlertError"].name, __WEBPACK_IMPORTED_MODULE_0_vform__["AlertError"]);
+// required components
+Vue.prototype.$formatter = new __WEBPACK_IMPORTED_MODULE_3__Formatter__["a" /* default */]();
+Vue.component('datepicker', __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__["a" /* default */]);
+Vue.component('NumberInputSpinner', __WEBPACK_IMPORTED_MODULE_1_vue_number_input_spinner___default.a);
 Vue.component('availability-component', __webpack_require__(42));
 
 var app = new Vue({
@@ -47392,989 +47379,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(11)))
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("lVK7");
-
-
-/***/ }),
-
-/***/ "OMN4":
-/***/ (function(module, exports) {
-
-module.exports = __webpack_require__(10);
-
-/***/ }),
-
-/***/ "lVK7":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-// EXTERNAL MODULE: external "axios"
-var external__axios_ = __webpack_require__("OMN4");
-var external__axios__default = /*#__PURE__*/__webpack_require__.n(external__axios_);
-
-// CONCATENATED MODULE: ./src/util.js
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-/**
- * Deep copy the given object.
- *
- * @param  {Object} obj
- * @return {Object}
- */
-function deepCopy(obj) {
-  if (obj === null || _typeof(obj) !== 'object') {
-    return obj;
-  }
-
-  var copy = Array.isArray(obj) ? [] : {};
-  Object.keys(obj).forEach(function (key) {
-    copy[key] = deepCopy(obj[key]);
-  });
-  return copy;
-}
-/**
- * If the given value is not an array, wrap it in one.
- *
- * @param  {Any} value
- * @return {Array}
- */
-
-function arrayWrap(value) {
-  return Array.isArray(value) ? value : [value];
-}
-// CONCATENATED MODULE: ./src/Errors.js
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function Errors__typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Errors__typeof = function _typeof(obj) { return typeof obj; }; } else { Errors__typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Errors__typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var Errors_Errors =
-/*#__PURE__*/
-function () {
-  /**
-   * Create a new error bag instance.
-   */
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-  /**
-   * Set the errors object or field error messages.
-   *
-   * @param {Object|String} field
-   * @param {Array|String|undefined} messages
-   */
-
-
-  _createClass(Errors, [{
-    key: "set",
-    value: function set(field, messages) {
-      if (Errors__typeof(field) === 'object') {
-        this.errors = field;
-      } else {
-        this.set(_extends({}, this.errors, _defineProperty({}, field, arrayWrap(messages))));
-      }
-    }
-    /**
-     * Get all the errors.
-     *
-     * @return {Object}
-     */
-
-  }, {
-    key: "all",
-    value: function all() {
-      return this.errors;
-    }
-    /**
-     * Determine if there is an error for the given field.
-     *
-     * @param  {String} field
-     * @return {Boolean}
-     */
-
-  }, {
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-    /**
-     * Determine if there are any errors for the given fields.
-     *
-     * @param  {...String} fields
-     * @return {Boolean}
-     */
-
-  }, {
-    key: "hasAny",
-    value: function hasAny() {
-      var _this = this;
-
-      for (var _len = arguments.length, fields = new Array(_len), _key = 0; _key < _len; _key++) {
-        fields[_key] = arguments[_key];
-      }
-
-      return fields.some(function (field) {
-        return _this.has(field);
-      });
-    }
-    /**
-     * Determine if there are any errors.
-     *
-     * @return {Boolean}
-     */
-
-  }, {
-    key: "any",
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-    /**
-     * Get the first error message for the given field.
-     *
-     * @param  String} field
-     * @return {String|undefined}
-     */
-
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.has(field)) {
-        return this.getAll(field)[0];
-      }
-    }
-    /**
-     * Get all the error messages for the given field.
-     *
-     * @param  {String} field
-     * @return {Array}
-     */
-
-  }, {
-    key: "getAll",
-    value: function getAll(field) {
-      return arrayWrap(this.errors[field] || []);
-    }
-    /**
-     * Get the error message for the given fields.
-     *
-     * @param  {...String} fields
-     * @return {Array}
-     */
-
-  }, {
-    key: "only",
-    value: function only() {
-      var _this2 = this;
-
-      var messages = [];
-
-      for (var _len2 = arguments.length, fields = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        fields[_key2] = arguments[_key2];
-      }
-
-      fields.forEach(function (field) {
-        var message = _this2.get(field);
-
-        if (message) {
-          messages.push(message);
-        }
-      });
-      return messages;
-    }
-    /**
-     * Get all the errors in a flat array.
-     *
-     * @return {Array}
-     */
-
-  }, {
-    key: "flatten",
-    value: function flatten() {
-      return Object.values(this.errors).reduce(function (a, b) {
-        return a.concat(b);
-      }, []);
-    }
-    /**
-     * Clear one or all error fields.
-     *
-     * @param {String|undefined} field
-     */
-
-  }, {
-    key: "clear",
-    value: function clear(field) {
-      var _this3 = this;
-
-      var errors = {};
-
-      if (field) {
-        Object.keys(this.errors).forEach(function (key) {
-          if (key !== field) {
-            errors[key] = _this3.errors[key];
-          }
-        });
-      }
-
-      this.set(errors);
-    }
-  }]);
-
-  return Errors;
-}();
-
-
-// CONCATENATED MODULE: ./src/Form.js
-function Form__typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Form__typeof = function _typeof(obj) { return typeof obj; }; } else { Form__typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Form__typeof(obj); }
-
-function Form__defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function Form__extends() { Form__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Form__extends.apply(this, arguments); }
-
-function Form__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function Form__defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function Form__createClass(Constructor, protoProps, staticProps) { if (protoProps) Form__defineProperties(Constructor.prototype, protoProps); if (staticProps) Form__defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-
-
-var Form_Form =
-/*#__PURE__*/
-function () {
-  /**
-   * Create a new form instance.
-   *
-   * @param {Object} data
-   */
-  function Form() {
-    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    Form__classCallCheck(this, Form);
-
-    this.busy = false;
-    this.successful = false;
-    this.errors = new Errors_Errors();
-    this.originalData = deepCopy(data);
-    Object.assign(this, data);
-  }
-  /**
-   * Fill form data.
-   *
-   * @param {Object} data
-   */
-
-
-  Form__createClass(Form, [{
-    key: "fill",
-    value: function fill(data) {
-      var _this = this;
-
-      this.keys().forEach(function (key) {
-        _this[key] = data[key];
-      });
-    }
-    /**
-     * Get the form data.
-     *
-     * @return {Object}
-     */
-
-  }, {
-    key: "data",
-    value: function data() {
-      var _this2 = this;
-
-      return this.keys().reduce(function (data, key) {
-        return Form__extends({}, data, Form__defineProperty({}, key, _this2[key]));
-      }, {});
-    }
-    /**
-     * Get the form data keys.
-     *
-     * @return {Array}
-     */
-
-  }, {
-    key: "keys",
-    value: function keys() {
-      return Object.keys(this).filter(function (key) {
-        return !Form.ignore.includes(key);
-      });
-    }
-    /**
-     * Start processing the form.
-     */
-
-  }, {
-    key: "startProcessing",
-    value: function startProcessing() {
-      this.errors.clear();
-      this.busy = true;
-      this.successful = false;
-    }
-    /**
-     * Finish processing the form.
-     */
-
-  }, {
-    key: "finishProcessing",
-    value: function finishProcessing() {
-      this.busy = false;
-      this.successful = true;
-    }
-    /**
-     * Clear the form errors.
-     */
-
-  }, {
-    key: "clear",
-    value: function clear() {
-      this.errors.clear();
-      this.successful = false;
-    }
-    /**
-     * Reset the form fields.
-     */
-
-  }, {
-    key: "reset",
-    value: function reset() {
-      var _this3 = this;
-
-      Object.keys(this).filter(function (key) {
-        return !Form.ignore.includes(key);
-      }).forEach(function (key) {
-        _this3[key] = deepCopy(_this3.originalData[key]);
-      });
-    }
-    /**
-     * Submit the from via a GET request.
-     *
-     * @param  {String} url
-     * @return {Promise}
-     */
-
-  }, {
-    key: "get",
-    value: function get(url) {
-      return this.submit('get', url);
-    }
-    /**
-     * Submit the from via a POST request.
-     *
-     * @param  {String} url
-     * @return {Promise}
-     */
-
-  }, {
-    key: "post",
-    value: function post(url) {
-      return this.submit('post', url);
-    }
-    /**
-     * Submit the from via a PATCH request.
-     *
-     * @param  {String} url
-     * @return {Promise}
-     */
-
-  }, {
-    key: "patch",
-    value: function patch(url) {
-      return this.submit('patch', url);
-    }
-    /**
-     * Submit the from via a PUT request.
-     *
-     * @param  {String} url
-     * @return {Promise}
-     */
-
-  }, {
-    key: "put",
-    value: function put(url) {
-      return this.submit('put', url);
-    }
-    /**
-     * Submit the from via a DELETE request.
-     *
-     * @param  {String} url
-     * @return {Promise}
-     */
-
-  }, {
-    key: "delete",
-    value: function _delete(url) {
-      return this.submit('delete', url);
-    }
-    /**
-     * Submit the form data via an HTTP request.
-     *
-     * @param  {String} method (get, post, patch, put)
-     * @param  {String} url
-     * @param  {Object} config (axios config)
-     * @return {Promise}
-     */
-
-  }, {
-    key: "submit",
-    value: function submit(method, url) {
-      var _this4 = this;
-
-      var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      this.startProcessing();
-      var data = method === 'get' ? {
-        params: this.data()
-      } : this.data();
-      return new Promise(function (resolve, reject) {
-        external__axios__default.a.request(Form__extends({
-          url: _this4.route(url),
-          method: method,
-          data: data
-        }, config)).then(function (response) {
-          _this4.finishProcessing();
-
-          resolve(response);
-        }).catch(function (error) {
-          _this4.busy = false;
-
-          if (error.response) {
-            _this4.errors.set(_this4.extractErrors(error.response));
-          }
-
-          reject(error);
-        });
-      });
-    }
-    /**
-     * Extract the errors from the response object.
-     *
-     * @param  {Object} response
-     * @return {Object}
-     */
-
-  }, {
-    key: "extractErrors",
-    value: function extractErrors(response) {
-      if (!response.data || Form__typeof(response.data) !== 'object') {
-        return {
-          error: Form.errorMessage
-        };
-      }
-
-      if (response.data.errors) {
-        return Form__extends({}, response.data.errors);
-      }
-
-      if (response.data.message) {
-        return {
-          error: response.data.message
-        };
-      }
-
-      return Form__extends({}, response.data);
-    }
-    /**
-     * Get a named route.
-     *
-     * @param  {String} name
-     * @return {Object} parameters
-     * @return {String}
-     */
-
-  }, {
-    key: "route",
-    value: function route(name) {
-      var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var url = name;
-
-      if (Form.routes.hasOwnProperty(name)) {
-        url = decodeURI(Form.routes[name]);
-      }
-
-      if (Form__typeof(parameters) !== 'object') {
-        parameters = {
-          id: parameters
-        };
-      }
-
-      Object.keys(parameters).forEach(function (key) {
-        url = url.replace("{".concat(key, "}"), parameters[key]);
-      });
-      return url;
-    }
-    /**
-     * Clear errors on keydown.
-     *
-     * @param {KeyboardEvent} event
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event) {
-      if (event.target.name) {
-        this.errors.clear(event.target.name);
-      }
-    }
-  }]);
-
-  return Form;
-}();
-
-Form_Form.routes = {};
-Form_Form.errorMessage = 'Something went wrong. Please try again.';
-Form_Form.ignore = ['busy', 'successful', 'errors', 'originalData'];
-/* harmony default export */ var src_Form = (Form_Form);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//Otinsoft//Code//github//vform//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/HasError.vue
-//
-//
-//
-//
-/* harmony default export */ var HasError = ({
-  name: 'has-error',
-  props: {
-    form: {
-      type: Object,
-      required: true
-    },
-    field: {
-      type: String,
-      required: true
-    }
-  }
-});
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4389a6dd","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/HasError.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.form.errors.has(_vm.field))?_c('div',{staticClass:"help-block invalid-feedback",domProps:{"innerHTML":_vm._s(_vm.form.errors.get(_vm.field))}}):_vm._e()}
-var staticRenderFns = []
-
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  scriptExports = scriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof scriptExports.default
-  if (type === 'object' || type === 'function') {
-    scriptExports = scriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-// CONCATENATED MODULE: ./src/components/HasError.vue
-/* script */
-
-
-/* template */
-
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-
-var Component = normalizeComponent(
-  HasError,
-  render,
-  staticRenderFns,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ var components_HasError = (Component.exports);
-
-// CONCATENATED MODULE: ./src/components/Alert.js
-/* harmony default export */ var Alert = ({
-  props: {
-    form: {
-      type: Object,
-      required: true
-    },
-    dismissible: {
-      type: Boolean,
-      default: true
-    }
-  },
-  methods: {
-    dismiss: function dismiss() {
-      if (this.dismissible) {
-        this.form.clear();
-      }
-    }
-  }
-});
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//Otinsoft//Code//github//vform//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/AlertError.vue
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var AlertError = ({
-  name: 'alert-error',
-  extends: Alert,
-  props: {
-    message: {
-      type: String,
-      default: 'There were some problems with your input.'
-    }
-  }
-});
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-e73aa7c8","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/AlertError.vue
-var AlertError_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.form.errors.any())?_c('div',{staticClass:"alert alert-danger alert-dismissible",attrs:{"role":"alert"}},[(_vm.dismissible)?_c('button',{staticClass:"close",attrs:{"type":"button","aria-label":"Close"},on:{"click":_vm.dismiss}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])]):_vm._e(),_vm._v(" "),_vm._t("default",[(_vm.form.errors.has('error'))?_c('div',{domProps:{"innerHTML":_vm._s(_vm.form.errors.get('error'))}}):_c('div',{domProps:{"innerHTML":_vm._s(_vm.message)}})])],2):_vm._e()}
-var AlertError_staticRenderFns = []
-
-// CONCATENATED MODULE: ./src/components/AlertError.vue
-/* script */
-
-
-/* template */
-
-/* template functional */
-var AlertError___vue_template_functional__ = false
-/* styles */
-var AlertError___vue_styles__ = null
-/* scopeId */
-var AlertError___vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var AlertError___vue_module_identifier__ = null
-
-var AlertError_Component = normalizeComponent(
-  AlertError,
-  AlertError_render,
-  AlertError_staticRenderFns,
-  AlertError___vue_template_functional__,
-  AlertError___vue_styles__,
-  AlertError___vue_scopeId__,
-  AlertError___vue_module_identifier__
-)
-
-/* harmony default export */ var components_AlertError = (AlertError_Component.exports);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//Otinsoft//Code//github//vform//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/AlertErrors.vue
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var AlertErrors = ({
-  name: 'alert-errors',
-  extends: Alert,
-  props: {
-    message: {
-      type: String,
-      default: 'There were some problems with your input.'
-    }
-  }
-});
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-422a6591","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/AlertErrors.vue
-var AlertErrors_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.form.errors.any())?_c('div',{staticClass:"alert alert-danger alert-dismissible",attrs:{"role":"alert"}},[(_vm.dismissible)?_c('button',{staticClass:"close",attrs:{"type":"button","aria-label":"Close"},on:{"click":_vm.dismiss}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])]):_vm._e(),_vm._v(" "),(_vm.message)?_c('div',{domProps:{"innerHTML":_vm._s(_vm.message)}}):_vm._e(),_vm._v(" "),_c('ul',_vm._l((_vm.form.errors.flatten()),function(error){return _c('li',{domProps:{"innerHTML":_vm._s(error)}})}))]):_vm._e()}
-var AlertErrors_staticRenderFns = []
-
-// CONCATENATED MODULE: ./src/components/AlertErrors.vue
-/* script */
-
-
-/* template */
-
-/* template functional */
-var AlertErrors___vue_template_functional__ = false
-/* styles */
-var AlertErrors___vue_styles__ = null
-/* scopeId */
-var AlertErrors___vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var AlertErrors___vue_module_identifier__ = null
-
-var AlertErrors_Component = normalizeComponent(
-  AlertErrors,
-  AlertErrors_render,
-  AlertErrors_staticRenderFns,
-  AlertErrors___vue_template_functional__,
-  AlertErrors___vue_styles__,
-  AlertErrors___vue_scopeId__,
-  AlertErrors___vue_module_identifier__
-)
-
-/* harmony default export */ var components_AlertErrors = (AlertErrors_Component.exports);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//Otinsoft//Code//github//vform//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/AlertSuccess.vue
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var AlertSuccess = ({
-  name: 'alert-success',
-  extends: Alert,
-  props: {
-    message: {
-      type: String,
-      default: ''
-    }
-  }
-});
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0afdb8a8","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/AlertSuccess.vue
-var AlertSuccess_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.form.successful)?_c('div',{staticClass:"alert alert-success alert-dismissible",attrs:{"role":"alert"}},[(_vm.dismissible)?_c('button',{staticClass:"close",attrs:{"type":"button","aria-label":"Close"},on:{"click":_vm.dismiss}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])]):_vm._e(),_vm._v(" "),_vm._t("default",[_c('div',{domProps:{"innerHTML":_vm._s(_vm.message)}})])],2):_vm._e()}
-var AlertSuccess_staticRenderFns = []
-
-// CONCATENATED MODULE: ./src/components/AlertSuccess.vue
-/* script */
-
-
-/* template */
-
-/* template functional */
-var AlertSuccess___vue_template_functional__ = false
-/* styles */
-var AlertSuccess___vue_styles__ = null
-/* scopeId */
-var AlertSuccess___vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var AlertSuccess___vue_module_identifier__ = null
-
-var AlertSuccess_Component = normalizeComponent(
-  AlertSuccess,
-  AlertSuccess_render,
-  AlertSuccess_staticRenderFns,
-  AlertSuccess___vue_template_functional__,
-  AlertSuccess___vue_styles__,
-  AlertSuccess___vue_scopeId__,
-  AlertSuccess___vue_module_identifier__
-)
-
-/* harmony default export */ var components_AlertSuccess = (AlertSuccess_Component.exports);
-
-// CONCATENATED MODULE: ./src/index.js
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "Form", function() { return src_Form; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "Errors", function() { return Errors_Errors; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "HasError", function() { return components_HasError; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "AlertError", function() { return components_AlertError; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "AlertErrors", function() { return components_AlertErrors; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "AlertSuccess", function() { return components_AlertSuccess; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "default", function() { return src_Form; });
-
-
-
-
-
-
-
-
-/***/ })
-
-/******/ });
-
-/***/ }),
+/* 39 */,
 /* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -50037,8 +49042,118 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50315,14 +49430,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        var _ref;
-
-        return _ref = {
+        return {
             page_title: 'Enquiry calendar',
-            room_dictionary: {},
-            weekly_result: {},
-            selection: {},
-            summary: {
+            booking_property: {}, // holds data of returned properties
+            room_dictionary: {}, // object of rooms retrievable by room_id
+            weekly_result: {}, // List of 6 weeks of dates and bookings from arrival_date. If arrival_date
+            // was not a Monday, the closet previous Monday would be selected.
+            selection: {}, // to track the selection. Object should contain dates pointing to the
+            // selected room details for that date
+            bookings_available: false, // set to true if  there is any selection.
+            summary: { // default value of summary
                 "booking_total": 0,
                 "room_no": -1,
                 "dates_picked": [],
@@ -50330,70 +49447,81 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 "room_rates_without_tax": 0,
                 "tax_applied": 0
             },
-            booking_property: {},
-            bookings_available: false,
-            arrival_date: ""
-        }, _defineProperty(_ref, "arrival_date", 0), _defineProperty(_ref, "state", {
-            arrival_date: new Date(),
-            no_of_guests: 0
-        }), _defineProperty(_ref, "enquiry_outcome", null), _defineProperty(_ref, "search", new Form({
-            arrival_date: '',
-            no_of_guests: ''
-        })), _defineProperty(_ref, "enquiry", {
-            first_name: "",
-            last_name: "",
-            email: ""
-        }), _ref;
+            arrival_date: "", // record of currently searched arrival date
+            no_of_guests: 0, // record of currently searched no_of_guests
+            state: { // holds current state of search inputs
+                arrival_date: new Date(),
+                no_of_guests: 0
+            },
+            enquiry_outcome: null, // outcome of the enquiry
+            enquiry: { // enquiry for information.
+                first_name: "",
+                last_name: "",
+                email: ""
+            }
+        };
     },
     mounted: function mounted() {
+        // on load..
         this.checkAvailability();
     },
 
     methods: {
+        // checks if there are rooms matching current search criteria
         checkAvailability: function checkAvailability() {
             var _this = this;
 
-            // console.log("Searched");
-            // console.log(this.search);
+            // clear current selection...
+            this.clearRoomSelection();
+            // then...
             axios.post('api/availability/search', {
                 "arrival_date": this.state.arrival_date,
                 "no_of_guests": this.state.no_of_guests
-            }).then(function (_ref2) {
-                var data = _ref2.data;
+            }).then(function (_ref) {
+                var data = _ref.data;
 
-                console.log(data);
-                // var arrival_date = moment(data.arrival_date);
-                // var arrival_start_of_week = arrival_date.clone().startOf('isoWeek');
-                // var end_date = arrival_start_of_week.clone().add(4, 'w').endOf('isoWeek');
-                // console.log(arrival_date.format('MMMM DD YYYY'));
-                // console.log(arrival_start_of_week.format('MMMM DD YYYY'));
-                // console.log(end_date.format('MMMM DD YYYY'));
+                //  store current search criteria.
                 _this.arrival_date = data.arrival_date;
                 _this.no_of_guests = data.no_of_guests;
-                _this.$formatter.init(data.arrival_date);
+                // and property information.
                 _this.booking_property = data.property;
                 _this.page_title = _this.booking_property.name;
+                // initialse formatter..
+                _this.$formatter.init(data.arrival_date);
+                // get dictionary of rooms
                 _this.room_dictionary = _this.$formatter.getRoomDictionary(data);
+                // and all available room data for 6 weeks...
                 _this.weekly_result = _this.$formatter.getRoomStatusByWeek(data);
-
-                console.log(_this.room_dictionary);
-                console.log(_this.weekly_result);
-
-                // console.log(this.$formatter.getDaysBetween(this.$formatter.start_date, this.$formatter.end_date));
             });
         },
+
+        // Clear enquiry form data.. this will clear the input in the enquiry modal
+        clearEnquiryFormData: function clearEnquiryFormData() {
+            // reset enquiry data
+            this.enquiry.first_name = "";
+            this.enquiry.last_name = "";
+            this.enquiry.email = "";
+        },
+
+        // to open the enquiry modal form
         newEnquiry: function newEnquiry() {
-            // this.enquiry.reset();
+            this.clearEnquiryFormData();
+            // and then show
             $("#enquire").modal('show');
         },
+
+        // to close the enquiry modal form
         dismissEnquiryForm: function dismissEnquiryForm() {
-            // this.enquiry.reset();
             $("#enquire").modal('hide');
         },
+
+        // Post an enquiry request
         enquireNow: function enquireNow() {
             var _this2 = this;
 
-            this.enquiry_outcome == null;
+            //  clear for new enquiry outcome
+            this.clearEnquiryOutcomeData();
+            // then post....
             axios.post('api/availability/enquire-now', {
                 "room_id": this.summary.room_no,
                 "arrival_date": this.arrival_date,
@@ -50402,40 +49530,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 "first_name": this.enquiry.first_name,
                 "last_name": this.enquiry.last_name,
                 "email": this.enquiry.email
-            }).then(function (_ref3) {
-                var data = _ref3.data;
+            }).then(function (_ref2) {
+                var data = _ref2.data;
 
                 _this2.dismissEnquiryForm();
                 _this2.enquiry_outcome = JSON.stringify(data, null, 4);
                 console.log(data);
-            }).catch(function (_ref4) {
-                var error = _ref4.error;
+            }).catch(function (_ref3) {
+                var error = _ref3.error;
 
                 _this2.dismissEnquiryForm();
                 _this2.enquiry_outcome = "There was an error making your enquiry. Please refresh the page and try again.";
                 console.log(error);
             });
         },
-        handleChange: function handleChange(e, date, room_no, rate, tax_included) {
-            // console.log(date);
-            // console.log(room_no);
-            // console.log(rate);
-            // console.log(tax_included);
+
+        // removes the pre tag with enquiry response json
+        clearEnquiryOutcomeData: function clearEnquiryOutcomeData() {
+            this.enquiry_outcome = null;
+        },
+
+        // when changes to checkbox....
+        handleCheckboxChange: function handleCheckboxChange(e, date, room_no, rate, tax_included) {
             if ($(e.target).is(':checked')) {
-                console.log('adding to selection');
+                // add to selection if checked..
                 this.selection[date] = {
                     'room_no': room_no,
                     'rate': rate,
                     'tax_included': tax_included
                 };
             } else {
-                console.log('removing from selection');
+                // or remove
                 delete this.selection[date];
             }
-            this.compileSummary();
+            this.clearEnquiryOutcomeData(); // Why? maybe thee old enquiry is no longer valid once anew selection is made.
+            this.compileSummary(); // compile summary based on updated selection information...
         },
+
+        // Created summary data based on current value of this.selection....
         compileSummary: function compileSummary() {
-            /*
+            /*  calculating...
              * booking total (using tax settings, currency and tax values),
              * dates picked
              * number of guests
@@ -50462,21 +49596,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     console.log(this.booking_property);
                     room_rate_taxes_applied += date_info.rate * this.booking_property.tax / 100;
                 }
-                // console.log(this.selection[date]);
             }
+            // calculate booking total
             booking_total = room_rate_sum_without_tax + room_rate_sum_with_tax + room_rate_taxes_applied;
 
-            this.bookings_available = dates_picked.length > 0 ? true : false;
+            if (dates_picked.length > 0) {
+                this.bookings_available = true; // even if already true...
+                this.summary = {
+                    "booking_total": booking_total,
+                    "room_no": room_no,
+                    "dates_picked": dates_picked,
+                    "room_rates_with_tax": room_rate_sum_with_tax,
+                    "room_rates_without_tax": room_rate_sum_without_tax,
+                    "tax_applied": room_rate_taxes_applied
+                };
+            } else {
+                this.clearRoomSelectionData();
+            }
+        },
 
+        // to clear all checkboxes inside the calendar carousel  and the room selection data...
+        clearRoomSelection: function clearRoomSelection() {
+            $("#myCarousel input[type='checkbox']").prop('checked', false);
+            this.clearRoomSelectionData();
+        },
+
+        // To clear data of room selection..
+        clearRoomSelectionData: function clearRoomSelectionData() {
+            this.selection = {};
+            this.bookings_available = false;
             this.summary = {
-                "booking_total": booking_total,
-                "room_no": room_no,
-                "dates_picked": dates_picked,
-                "room_rates_with_tax": room_rate_sum_with_tax,
-                "room_rates_without_tax": room_rate_sum_without_tax,
-                "tax_applied": room_rate_taxes_applied
+                "booking_total": 0,
+                "room_no": -1,
+                "dates_picked": [],
+                "room_rates_with_tax": 0,
+                "room_rates_without_tax": 0,
+                "tax_applied": 0
             };
-            console.log(this.summary);
         }
     }
 });
@@ -50502,96 +49658,57 @@ var render = function() {
               "div",
               { staticClass: "card-tools", staticStyle: { display: "block" } },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass: "search-input",
-                    staticStyle: { width: "80%", float: "left" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "search-date",
-                        staticStyle: {
-                          width: "40%",
-                          margin: "0",
-                          display: "block",
-                          float: "left"
-                        }
-                      },
-                      [
-                        _c("datepicker", {
-                          attrs: { name: "arrival_date" },
-                          model: {
-                            value: _vm.state.arrival_date,
-                            callback: function($$v) {
-                              _vm.$set(_vm.state, "arrival_date", $$v)
-                            },
-                            expression: "state.arrival_date"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "search-spinner",
-                        staticStyle: {
-                          width: "50%",
-                          display: "block",
-                          float: "left"
-                        }
-                      },
-                      [
-                        _c("NumberInputSpinner", {
-                          attrs: {
-                            min: 0,
-                            max: 10,
-                            step: 1,
-                            integerOnly: true
+                _c("div", { staticClass: "search-input" }, [
+                  _c(
+                    "div",
+                    { staticClass: "search-date" },
+                    [
+                      _c("datepicker", {
+                        attrs: { name: "arrival_date" },
+                        model: {
+                          value: _vm.state.arrival_date,
+                          callback: function($$v) {
+                            _vm.$set(_vm.state, "arrival_date", $$v)
                           },
-                          model: {
-                            value: _vm.state.no_of_guests,
-                            callback: function($$v) {
-                              _vm.$set(_vm.state, "no_of_guests", $$v)
-                            },
-                            expression: "state.no_of_guests"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                ),
+                          expression: "state.arrival_date"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "search-spinner" },
+                    [
+                      _c("NumberInputSpinner", {
+                        attrs: { min: 0, max: 10, step: 1, integerOnly: true },
+                        model: {
+                          value: _vm.state.no_of_guests,
+                          callback: function($$v) {
+                            _vm.$set(_vm.state, "no_of_guests", $$v)
+                          },
+                          expression: "state.no_of_guests"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "search-button",
-                    staticStyle: {
-                      width: "20%",
-                      margin: "0",
-                      display: "block",
-                      float: "left"
-                    }
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success",
-                        on: { click: _vm.checkAvailability }
-                      },
-                      [
-                        _vm._v("\n                                Search "),
-                        _c("i", { staticClass: "fa fa-search" })
-                      ]
-                    )
-                  ]
-                )
+                _c("div", { staticClass: "search-button" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: { click: _vm.checkAvailability }
+                    },
+                    [
+                      _vm._v("\n                                Search "),
+                      _c("i", { staticClass: "fa fa-search" })
+                    ]
+                  )
+                ])
               ]
             )
           ]),
@@ -50601,7 +49718,7 @@ var render = function() {
               "div",
               {
                 staticClass: "calendar",
-                staticStyle: { width: "60%", float: "left" }
+                staticStyle: { width: "70%", float: "left" }
               },
               [
                 _c(
@@ -50642,7 +49759,15 @@ var render = function() {
                             class: { active: index == 0 }
                           },
                           [
-                            _vm._m(0, true),
+                            _c(
+                              "div",
+                              { staticClass: "calendar-row calender-heading" },
+                              [
+                                _c("span", { staticClass: "middle" }, [
+                                  _vm._v("Week #" + _vm._s(index + 1))
+                                ])
+                              ]
+                            ),
                             _vm._v(" "),
                             _vm._l(item, function(date_rooms, date) {
                               return _c(
@@ -50741,52 +49866,75 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass: "room box",
-                                            staticStyle: { float: "left" }
+                                            class: {
+                                              "not-available":
+                                                room.available != 1
+                                            }
                                           },
                                           [
                                             _vm.room_dictionary.hasOwnProperty(
                                               room_no
                                             )
                                               ? _c("div", [
-                                                  _c("p", [
-                                                    _vm._v(
-                                                      _vm._s(
-                                                        _vm.room_dictionary[
-                                                          room_no
-                                                        ]["name"]
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "box-title"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.room_dictionary[
+                                                            room_no
+                                                          ]["name"]
+                                                        )
                                                       )
-                                                    )
-                                                  ]),
+                                                    ]
+                                                  ),
                                                   _vm._v(" "),
-                                                  _c("span", [
-                                                    _c("i", {
-                                                      staticClass: "fa fa-bed"
-                                                    }),
-                                                    _vm._v(
-                                                      " " +
-                                                        _vm._s(
-                                                          _vm.room_dictionary[
-                                                            room_no
-                                                          ]["bedrooms"]
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "box-content"
+                                                    },
+                                                    [
+                                                      _c("span", [
+                                                        _c("i", {
+                                                          staticClass:
+                                                            "fa fa-bed"
+                                                        }),
+                                                        _vm._v(
+                                                          " " +
+                                                            _vm._s(
+                                                              _vm
+                                                                .room_dictionary[
+                                                                room_no
+                                                              ]["bedrooms"]
+                                                            )
                                                         )
-                                                    )
-                                                  ]),
-                                                  _vm._v(" "),
-                                                  _c("span", [
-                                                    _c("i", {
-                                                      staticClass: "fa fa-users"
-                                                    }),
-                                                    _vm._v(
-                                                      " " +
-                                                        _vm._s(
-                                                          _vm.room_dictionary[
-                                                            room_no
-                                                          ]["max_guests"]
+                                                      ]),
+                                                      _vm._v(
+                                                        " |\n                                                        "
+                                                      ),
+                                                      _c("span", [
+                                                        _c("i", {
+                                                          staticClass:
+                                                            "fa fa-users"
+                                                        }),
+                                                        _vm._v(
+                                                          " " +
+                                                            _vm._s(
+                                                              _vm
+                                                                .room_dictionary[
+                                                                room_no
+                                                              ]["max_guests"]
+                                                            )
                                                         )
-                                                    )
-                                                  ]),
+                                                      ])
+                                                    ]
+                                                  ),
                                                   _vm._v(" "),
-                                                  _c("p", [
+                                                  _c("div", [
                                                     _c("i", {
                                                       staticClass:
                                                         "far fa-money-bill-alt"
@@ -50813,8 +49961,8 @@ var render = function() {
                                                           _vm.room_dictionary[
                                                             room_no
                                                           ]["tax_inclusive"]
-                                                            ? "Includes Taxes"
-                                                            : "taxes Extra"
+                                                            ? "Inc Tax"
+                                                            : " + Tax"
                                                         ) +
                                                         " )\n                                                    "
                                                     )
@@ -50825,7 +49973,7 @@ var render = function() {
                                                         "div",
                                                         {
                                                           staticClass:
-                                                            "availability avail-yes"
+                                                            "box-content availability avail-yes"
                                                         },
                                                         [
                                                           _vm._v(
@@ -50836,6 +49984,9 @@ var render = function() {
                                                                 attrs: {
                                                                   type:
                                                                     "checkbox",
+                                                                  name:
+                                                                    date +
+                                                                    room_no,
                                                                   disabled:
                                                                     this
                                                                       .bookings_available ||
@@ -50855,7 +50006,7 @@ var render = function() {
                                                                   change: function(
                                                                     $event
                                                                   ) {
-                                                                    _vm.handleChange(
+                                                                    _vm.handleCheckboxChange(
                                                                       $event,
                                                                       date,
                                                                       room_no,
@@ -50889,7 +50040,7 @@ var render = function() {
                                                         "div",
                                                         {
                                                           staticClass:
-                                                            "availability avail-no"
+                                                            "box-content availability avail-no"
                                                         },
                                                         [
                                                           _vm._v(
@@ -50916,100 +50067,134 @@ var render = function() {
                       0
                     ),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
-                    _vm._m(2)
+                    _vm._m(1)
                   ]
                 )
               ]
             ),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "selection-summary",
-                staticStyle: { width: "40%", float: "left" }
-              },
-              [
-                _vm.bookings_available
-                  ? _c("div", [
-                      _c("h1", [_vm._v("Summary")]),
+            _c("div", { staticClass: "selection-summary" }, [
+              _vm.bookings_available
+                ? _c("div", { staticClass: "summary-content" }, [
+                    _c("h1", [_vm._v("Summary")]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h2", [_vm._v("Chosen Date of Arrival")]),
                       _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("Chosen Date of Arrival")]),
-                        _vm._v(" "),
-                        _c("p", [
+                      _c("p", [
+                        _vm._v(_vm._s(_vm._f("displayDate")(_vm.arrival_date)))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h2", [_vm._v("No of Guests")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.no_of_guests))])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h2", [_vm._v("No of nights")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(_vm._s(_vm.summary.dates_picked.length))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        [
+                          _vm._v("\n                                    ("),
+                          _vm._l(_vm.summary.dates_picked, function(date) {
+                            return _c("span", [
+                              _vm._v(
+                                _vm._s(_vm._f("displayDayOfWeekFull")(date)) +
+                                  ", " +
+                                  _vm._s(_vm._f("displayDate")(date)) +
+                                  ";"
+                              )
+                            ])
+                          }),
+                          _vm._v(")\n                                ")
+                        ],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm.summary.room_rates_with_tax !== 0
+                      ? _c("div", [
+                          _c("h2", [_vm._v("Room(s) Rate (incl taxes)")]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.summary.room_rates_with_tax))
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.summary.room_rates_without_tax !== 0
+                      ? _c("div", [
+                          _c("h2", [_vm._v("Room(s) Rate (without taxes)")]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(_vm._s(_vm.summary.room_rates_without_tax))
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.summary.room_rates_without_tax !== 0
+                      ? _c("div", [
+                          _c("h2", [_vm._v("Taxes applied")]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.summary.tax_applied))])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h2", [_vm._v("Total Booking Cost")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.summary.booking_total))])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "center summary-buttons" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" },
+                          on: { click: _vm.clearRoomSelection }
+                        },
+                        [
                           _vm._v(
-                            _vm._s(_vm._f("displayDate")(_vm.arrival_date))
+                            "\n                                    Clear Selection\n                                "
                           )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("No of Guests")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.no_of_guests))])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("No of nights")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.summary.dates_picked.length))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("Room Rate (incl taxes)")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.summary.room_rates_with_tax))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("Room Rate (without taxes)")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.summary.room_rates_without_tax))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("Taxes applied")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.summary.tax_applied))])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c("h2", [_vm._v("Total Booking Cost")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(_vm.summary.booking_total))])
-                      ]),
-                      _vm._v(" "),
+                        ]
+                      ),
+                      _vm._v(" |\n                                "),
                       _c(
                         "button",
                         {
                           staticClass: "btn btn-success",
+                          attrs: { type: "button" },
                           on: { click: _vm.newEnquiry }
                         },
                         [
-                          _vm._v("\n                                Enquire "),
-                          _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                          _vm._v(
+                            "\n                                    Enquire\n                                "
+                          )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _vm.enquiry_outcome !== null
-                        ? _c("div", [
-                            _c("h2", [_vm._v("Enquiry outcome")]),
-                            _vm._v(" "),
-                            _c("pre", [_vm._v(_vm._s(_vm.enquiry_outcome))])
-                          ])
-                        : _vm._e()
-                    ])
-                  : _vm._e()
-              ]
-            )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm.enquiry_outcome !== null
+                      ? _c("div", [
+                          _c("h2", [_vm._v("Your Enquiry")]),
+                          _vm._v(" "),
+                          _c("pre", [_vm._v(_vm._s(_vm.enquiry_outcome))])
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e()
+            ])
           ])
         ])
       ])
@@ -51036,7 +50221,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "form",
@@ -51143,7 +50328,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _vm._m(3)
                 ]
               )
             ])
@@ -51154,14 +50339,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "calendar-row calender-heading" }, [
-      _c("span", { staticClass: "middle" }, [_vm._v("Weekly Availability")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -51347,6 +50524,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/* WARNING Parameter validation is not done properly for amy of the methods.
+ * This class contains methods that work on response from the server and returns relevant information
+ */
 var Formatter = function () {
     function Formatter() {
         _classCallCheck(this, Formatter);
@@ -51354,45 +50534,32 @@ var Formatter = function () {
         this.date_format = 'YYYY-MM-DD';
     }
 
+    /*  Gets date, sets start date as closest previous monday (of the given date if it is a Monday),
+     * sets end date as the Sunday after weeks given by @param weeks.
+     *
+     * @param arrival_date  - date-string
+     * @param weeks         - number (default 6)
+     * WARNING Error checking not done..
+     */
+
+
     _createClass(Formatter, [{
         key: 'init',
-        value: function init() {
-            var arrival_date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+        value: function init(arrival_date) {
+            var weeks = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
 
             this.arrival_date = moment(arrival_date);
             this.start_date = this.arrival_date.clone().startOf('isoWeek');
-            this.end_date = this.start_date.clone().add(5, 'w').endOf('isoWeek');
-            // console.log(this.arrival_date.format('MMMM DD YYYY'));
-            // console.log(this.start_date.format('MMMM DD YYYY'));
-            // console.log(this.end_date.format('MMMM DD YYYY'));
-            // this.getDaysBetween(this.start_date, this.end_date);
+            this.end_date = this.start_date.clone().add(weeks - 1, 'w').endOf('isoWeek');
         }
-    }, {
-        key: 'getDaysBetween',
-        value: function getDaysBetween(from_date, to_date) {
-            var dates = [];
-            var weeks = [];
-            var dates_bucket = [];
-            var curr_week = null;
-            while (from_date.diff(to_date) < 0) {
-                // console.log(from_date.toDate());
-                // console.log(from_date.week());
-                var new_date = from_date.clone();
-                dates_bucket.push(new_date.format('MMMM DD YYYY'));
-                dates.push(new_date.format('MMMM DD YYYY'));
 
-                if (curr_week == null) {
-                    curr_week = from_date.week();
-                } else if (curr_week !== from_date.week()) {
-                    weeks.push(dates_bucket);
-                    dates_bucket = [];
-                    curr_week = from_date.week();
-                }
-                from_date.add(1, 'days');
-            }
-            // console.log(weeks);
-            return weeks;
-        }
+        /* Converts list of rooms into a dictionary of rooms searchable by room_id
+         * Returns list of all days in between...
+         *
+         * @param data  - object; containing key 'rooms' as a list
+         * @return      - object with room_id for keys and room data as values
+         */
+
     }, {
         key: 'getRoomDictionary',
         value: function getRoomDictionary(data) {
@@ -51407,19 +50574,89 @@ var Formatter = function () {
             }
             return room_dict;
         }
+
+        /* Combine information in 'rates' and 'availability' in API response, and group them by weeks
+         *
+         * @param data  - object; containing key 'rates' and 'availability'
+         * @return      - object date=> room_info pairs grouped into weeks.
+         */
+
     }, {
         key: 'getRoomStatusByWeek',
         value: function getRoomStatusByWeek(data) {
             var weekly_result = {};
             var room_status_dates_list = {};
             if (data.hasOwnProperty('rates') && data.hasOwnProperty('availability')) {
+                // get list of all dates that have availability and rates for room_ids
                 room_status_dates_list = this.getRoomStatusOnDates(data);
-                // console.log(room_status_dates_list);
+                // pass the list to get
                 weekly_result = this.groupRoomStatusByWeeks(room_status_dates_list);
-                // console.log(weekly_result);
             }
             return weekly_result;
         }
+
+        /* Explodes all dates given by 'availability' and 'rate' in data; then combines corresponding data into a single list.
+         *
+         * @param data  - object; containing key 'rates' and 'availability'
+         * @return      - object date=> room_info pairs
+         */
+
+    }, {
+        key: 'getRoomStatusOnDates',
+        value: function getRoomStatusOnDates(data) {
+            var availability_dates_list = {};
+            if (data.hasOwnProperty('rates') && data.hasOwnProperty('availability')) {
+                var availability_list = data['availability'];
+                var rates_list = data['rates'];
+                var that = this;
+
+                var _loop = function _loop(i) {
+                    var availability = availability_list[i];
+                    if (availability.hasOwnProperty('start_date') && availability.hasOwnProperty('end_date')) {
+                        var avail_period = that.getDaysInPeriod(moment(availability["start_date"]), moment(availability['end_date']));
+                        var room_id = availability["room_id"];
+                        avail_period.forEach(function (avail_date) {
+                            if (!availability_dates_list.hasOwnProperty(avail_date)) {
+                                availability_dates_list[avail_date] = {};
+                            }
+                            if (!availability_dates_list[avail_date].hasOwnProperty(room_id)) {
+                                availability_dates_list[avail_date][room_id] = {};
+                            }
+                            availability_dates_list[avail_date][room_id]['available'] = availability['available'];
+                        });
+                    }
+                };
+
+                for (var i = 0; i < availability_list.length; i++) {
+                    _loop(i);
+                }
+                rates_list.forEach(function (rate) {
+                    if (rate.hasOwnProperty('start_date') && rate.hasOwnProperty('end_date')) {
+                        var rate_period = that.getDaysInPeriod(moment(rate["start_date"]), moment(rate['end_date']));
+                        var room_id = rate["room_id"];
+                        rate_period.forEach(function (rate_date) {
+                            if (!availability_dates_list.hasOwnProperty(rate_date)) {
+                                availability_dates_list[rate_date] = {};
+                            }
+                            if (!availability_dates_list[rate_date].hasOwnProperty(room_id)) {
+                                availability_dates_list[rate_date][room_id] = {
+                                    'available': false
+                                };
+                            }
+                            availability_dates_list[rate_date][room_id]['rate'] = rate['rate'];
+                        });
+                    }
+                });
+            }
+            return availability_dates_list;
+        }
+
+        /* Groups given room status into weeks..
+         * @param room_status_dates_list - object containing list of date=>room_info pairs
+         * @return                       - Information in @param room_status_dates_list grouped into 6 weeks based on
+         *                                 start_date and end_date arrived at during initialisation.
+         */
+
     }, {
         key: 'groupRoomStatusByWeeks',
         value: function groupRoomStatusByWeeks() {
@@ -51447,69 +50684,54 @@ var Formatter = function () {
             return weeks;
         }
 
-        // returns a list of
+        /* To get all days between two days
+         *
+         * @param start_date  - date
+         * @param end_date    - date
+         * @return            - list of weeks with all days (date-string) in between @param start_date and @param end_date
+         */
 
     }, {
-        key: 'getRoomStatusOnDates',
-        value: function getRoomStatusOnDates(data) {
-            var availability_dates_list = {};
-            if (data.hasOwnProperty('rates') && data.hasOwnProperty('availability')) {
-                var availability_list = data['availability'];
-                var rates_list = data['rates'];
-                var that = this;
-
-                var _loop = function _loop(i) {
-                    var availability = availability_list[i];
-                    if (availability.hasOwnProperty('start_date') && availability.hasOwnProperty('end_date')) {
-                        var avail_period = that.getPeriod(moment(availability["start_date"]), moment(availability['end_date']));
-                        var room_id = availability["room_id"];
-                        avail_period.forEach(function (avail_date) {
-                            if (!availability_dates_list.hasOwnProperty(avail_date)) {
-                                availability_dates_list[avail_date] = {};
-                            }
-                            if (!availability_dates_list[avail_date].hasOwnProperty(room_id)) {
-                                availability_dates_list[avail_date][room_id] = {};
-                            }
-                            availability_dates_list[avail_date][room_id]['available'] = availability['available'];
-                        });
-                    }
-                };
-
-                for (var i = 0; i < availability_list.length; i++) {
-                    _loop(i);
-                }
-                rates_list.forEach(function (rate) {
-                    if (rate.hasOwnProperty('start_date') && rate.hasOwnProperty('end_date')) {
-                        var rate_period = that.getPeriod(moment(rate["start_date"]), moment(rate['end_date']));
-                        var room_id = rate["room_id"];
-                        rate_period.forEach(function (rate_date) {
-                            if (!availability_dates_list.hasOwnProperty(rate_date)) {
-                                availability_dates_list[rate_date] = {};
-                            }
-                            if (!availability_dates_list[rate_date].hasOwnProperty(room_id)) {
-                                availability_dates_list[rate_date][room_id] = {
-                                    'available': false
-                                };
-                            }
-                            availability_dates_list[rate_date][room_id]['rate'] = rate['rate'];
-                        });
-                    }
-                });
-            }
-            // console.log(availability_dates_list);
-            return availability_dates_list;
-        }
-    }, {
-        key: 'getPeriod',
-        value: function getPeriod(from_date, to_date) {
+        key: 'getDaysInPeriod',
+        value: function getDaysInPeriod(from_date, to_date) {
             var dates_list = [];
             while (from_date.diff(to_date) < 0) {
                 var new_date = from_date.clone();
                 dates_list.push(new_date.format('YYYY-MM-DD'));
                 from_date.add(1, 'days');
             }
-            // console.log(dates_list);
             return dates_list;
+        }
+
+        /* To get all days between two days grouped in weeks...
+         *
+         * @param start_date  - date
+         * @param end_date    - date
+         * @return            - list of weeks with all days in between @param start_date and @param end_date
+         */
+
+    }, {
+        key: 'getDaysInPeriodAsWeeks',
+        value: function getDaysInPeriodAsWeeks(from_date, to_date) {
+            var dates = [];
+            var weeks = [];
+            var dates_bucket = [];
+            var curr_week = null;
+            while (from_date.diff(to_date) < 0) {
+                var new_date = from_date.clone();
+                dates_bucket.push(new_date.format('MMMM DD YYYY'));
+                dates.push(new_date.format('MMMM DD YYYY'));
+
+                if (curr_week == null) {
+                    curr_week = from_date.week();
+                } else if (curr_week !== from_date.week()) {
+                    weeks.push(dates_bucket);
+                    dates_bucket = [];
+                    curr_week = from_date.week();
+                }
+                from_date.add(1, 'days');
+            }
+            return weeks;
         }
     }]);
 
@@ -68179,7 +67401,7 @@ exports = module.exports = __webpack_require__(49)(false);
 
 
 // module
-exports.push([module.i, "\n.search-date {\n    font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 100%;\n}\n.fade {\n    opacity : 1;\n}\n.calendar-row {\n    min-height: 10rem;\n}\n.calendar-row.calender-heading {\n    background-color: orangered;\n    text-align: center;\n    color: white;\n    font-size: 3em;\n}\n.no-rooms {\n    text-align: center;\n    color: white;\n    font-size: 2em;\n}\n.center {\n    text-align: center;\n}\nspan.middle {\n    height: 90px;\n    line-height: 90px;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) {\n    background-color: lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) {\n    background-color: cadetblue;\n}\n.calendar-object {\n    float: left;\n    min-height: 100px;\n}\n.calendar-day {\n    width: 20%;\n}\n.calendar-rooms {\n    width: 80%;\n}\n.text-size-1 {\n    font-size: 1em;\n}\n.text-size-2 {\n    font-size: 2em;\n}\n.text-size-3 {\n    font-size: 3em;\n}\n.text-size-4 {\n    font-size: 4em;\n}\n.text-size-5 {\n    font-size: 5em;\n}\n.text-size-6 {\n    font-size: 6em;\n}\n.box {\n    width: 11em;\n    height: 11em;\n    padding: 0.5em;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box\n}\n.availability {\n    vertical-align: top;\n    min-heignt: 20px;\n}\n.carousel-control {\n    height: 10%;\n    width: 10%;\n    background-image: unset !important;\n}\n\n", ""]);
+exports.push([module.i, "\npre {\n    font-size: 1.5em;\n}\n.text-size-1 {\n    font-size: 1em;\n}\n.text-size-2 {\n    font-size: 2em;\n}\n.text-size-3 {\n    font-size: 3em;\n}\n.text-size-4 {\n    font-size: 4em;\n}\n.text-size-5 {\n    font-size: 5em;\n}\n.text-size-6 {\n    font-size: 6em;\n}\n.search-input {\n    width: 80%;\n    float: left;\n}\n.search-date {\n    width: 50%;\n    margin: 0px;\n    display: block;\n    float: left;\n    font-size: 1.5rem;\n}\n.search-date input {\n    font-size: 1.7rem;\n    line-height: 35px;\n    padding-left: 15px;\n    width: 95%;\n}\n.search-spinner {\n    width: 20%;\n    display: block;\n    float: left;\n}\n.search-button {\n    width: 20%;\n    margin: 0;\n    display: block;\n    float: left;\n}\n.fade {\n    opacity : 1;\n}\n.calendar-row {\n    min-height: 10rem;\n}\n.calendar-row.calender-heading {\n    background-color: orangered;\n    text-align: center;\n    color: white;\n    font-size: 3em;\n}\n.no-rooms {\n    text-align: center;\n    color: white;\n    font-size: 2em;\n}\n.center {\n    text-align: center;\n}\n.middle {\n    height: 90px;\n    line-height: 90px;\n}\n.calendar-object {\n    float: left;\n    min-height: 100px;\n}\n.calendar-day {\n    width: 20%;\n}\n.calendar-rooms {\n    width: 80%;\n}\n.box {\n    width: 11em;\n    height: 11em;\n    padding: 1em;\n    float: left;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.box .box-title {\n    height: 25px;\n    overflow: hidden;\n    font-size: 1.5em;\n}\n.box .box-content {\n    font-size: 1.2em;\n}\n.box.date-box {\n    background: whitesmoke;\n}\n.box.not-available {\n    background: orangered; /* always */\n}\n\n/* finally, alternative styling for  */\n.calendar-row:not(.calender-heading):nth-of-type(2n) {\n    background-color: lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) {\n    background-color: cadetblue;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box {\n    border-bottom: 0.5px solid lightgreen;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box {\n    border-bottom: 0.5px solid cadetblue;\n}\n.calendar-row:not(.calender-heading) .box:not(.date-box){\n    color: whitesmoke;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: darkslategrey;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: dimgray;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {\n    background: blueviolet;\n}\n.calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n):not(.not-available) {\n    background: greenyellow;\n}\n.selection-summary {\n    width: 30%;\n    float: left;\n    padding: 1em 2em;\n}\n.summary-content {\n    border: 1px solid black;\n    border-radius: 5px;\n}\n.summary-content h1 {\n    padding: 1em 0.5em;\n}\n.summary-content div h2 {\n    background: gray;\n    color: white;\n    padding: 0.5em;\n}\n.summary-content div p {\n    padding: 0.5em 1em 0;\n    font-size: 1.4em;\n}\n.summary-content div span {\n    padding: 0.5em 1em 0;\n    font-size: 1.2em;\n}\n.summary-buttons {\n    margin-bottom: 1em;\n}\n.availability {\n    vertical-align: top;\n    min-height: 20px;\n}\n.btn {\n    font-size: 2em;\n    height: 36px;\n}\n.carousel-control {\n    height: 10%;\n    width: 10%;\n    background-image: unset !important;\n}\n.carousel-indicators {\n    bottom: unset;\n    top: 0.5em;\n    left: 3em;\n}\n.carousel-indicators li {\n    margin-top: 4px;\n}\n\n", ""]);
 
 // exports
 
@@ -68444,467 +67666,6 @@ module.exports = function listToStyles (parentId, list) {
   return styles
 }
 
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["vue-number-spinner"] = factory();
-	else
-		root["vue-number-spinner"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(6)
-	__vue_script__ = __webpack_require__(1)
-	__vue_template__ = __webpack_require__(4)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = {
-		data: function data() {
-			return {
-				val: 0
-			};
-		},
-	
-	
-		props: {
-			min: {
-				type: Number,
-				default: 0
-			},
-			max: {
-				type: Number,
-				default: 999
-			},
-			step: {
-				type: Number,
-				default: 1
-			}
-		},
-	
-		computed: {},
-	
-		ready: function ready() {},
-	
-	
-		methods: {
-			plus: function plus() {
-				this.val += this.step;
-			},
-			minus: function minus() {
-				this.val -= this.step;
-			},
-			onWheel: function onWheel(e) {
-				e.deltaY < 0 ? this.plus() : this.minus();
-			}
-		},
-	
-		watch: {
-			val: function val(newVal, oldVal) {
-				if (newVal < this.min) {
-					this.val = this.min;
-				}
-				if (newVal > this.max) {
-					this.val = this.max;
-				}
-			}
-		}
-	};
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".input-group{position:relative;display:table;border-collapse:separate}.input-group-btn{position:relative;display:table-cell;font-size:0;white-space:nowrap}.btn{display:table-cell;font-family:Roboto Mono,Monaco,courier,monospace;font-weight:700;color:#fff;height:32px;border:none}.btn-plus{background-color:#4fc08d}.btn-plus:hover{background-color:#5dc596}.btn-minus{background-color:#f66}.btn-minus:hover{background-color:#f56}.number-spinner{height:32px;line-height:32px;box-sizing:border-box;padding:6px 10px;border:1px solid #e3e3e3;outline:none;-webkit-transition:border-color .2s ease;transition:border-color .2s ease}.number-spinner:focus{border:1px solid #4fc08d}", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = " <div class=input-group> <span class=input-group-btn> <button class=\"btn btn-minus\" @click=minus()><span>-</span></button> </span> <input type=text class=number-spinner v-model=val @keydown.up=plus @keydown.down=minus @wheel=onWheel> <div class=input-group-btn> <button class=\"btn btn-plus\" @click=plus()><span>+</span></button> </div> </div> ";
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-	
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-	
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-	
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-	
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-	
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-	
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-	
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-	
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-	
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-	
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-	
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-	
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-	
-		update(obj);
-	
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-	
-	var replaceText = (function () {
-		var textStore = [];
-	
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-	
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-	
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-	
-		if (media) {
-			styleElement.setAttribute("media", media);
-		}
-	
-		if (sourceMap) {
-			// https://developer.chrome.com/devtools/docs/javascript-debugging
-			// this makes source maps inside style tags work properly in Chrome
-			css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */';
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-	
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(2);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-number-spinner.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-number-spinner.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }
-/******/ ])
-});
-;
 
 /***/ })
 /******/ ]);

@@ -1,13 +1,55 @@
 <style scopped>
+    pre {
+        font-size: 1.5em;
+    }
+    .text-size-1 {
+        font-size: 1em;
+    }
+    .text-size-2 {
+        font-size: 2em;
+    }
+    .text-size-3 {
+        font-size: 3em;
+    }
+    .text-size-4 {
+        font-size: 4em;
+    }
+    .text-size-5 {
+        font-size: 5em;
+    }
+    .text-size-6 {
+        font-size: 6em;
+    }
+
+    .search-input {
+        width: 80%;
+        float: left;
+    }
     .search-date {
+        width: 50%;
+        margin: 0px;
+        display: block;
+        float: left;
         font-size: 1.5rem;
     }
     .search-date input {
         font-size: 1.7rem;
         line-height: 35px;
         padding-left: 15px;
-        width: 100%;
+        width: 95%;
     }
+    .search-spinner {
+        width: 20%;
+        display: block;
+        float: left;
+    }
+    .search-button {
+        width: 20%;
+        margin: 0;
+        display: block;
+        float: left;
+    }
+
     .fade {
         opacity : 1;
     }
@@ -29,16 +71,9 @@
     .center {
         text-align: center;
     }
-    span.middle {
+    .middle {
         height: 90px;
         line-height: 90px;
-    }
-
-    .calendar-row:not(.calender-heading):nth-of-type(2n) {
-        background-color: lightgreen;
-    }
-    .calendar-row:not(.calender-heading):nth-of-type(2n+1) {
-        background-color: cadetblue;
     }
 
     .calendar-object {
@@ -53,39 +88,108 @@
     .calendar-rooms {
         width: 80%;
     }
-    .text-size-1 {
-        font-size: 1em;
-    }
-    .text-size-2 {
-        font-size: 2em;
-    }
-    .text-size-3 {
-        font-size: 3em;
-    }
-    .text-size-4 {
-        font-size: 4em;
-    }
-    .text-size-5 {
-        font-size: 5em;
-    }
-    .text-size-6 {
-        font-size: 6em;
-    }
+
     .box {
         width: 11em;
         height: 11em;
+        padding: 1em;
+        float: left;
+        box-sizing: border-box;
+    }
+    .box .box-title {
+        height: 25px;
+        overflow: hidden;
+        font-size: 1.5em;
+    }
+    .box .box-content {
+        font-size: 1.2em;
+    }
+    .box.date-box {
+        background: whitesmoke;
+    }
+    .box.not-available {
+        background: orangered; /* always */
+    }
+
+    /* finally, alternative styling for  */
+    .calendar-row:not(.calender-heading):nth-of-type(2n) {
+        background-color: lightgreen;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n+1) {
+        background-color: cadetblue;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n) .box {
+        border-bottom: 0.5px solid lightgreen;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n+1) .box {
+        border-bottom: 0.5px solid cadetblue;
+    }
+    .calendar-row:not(.calender-heading) .box:not(.date-box){
+        color: whitesmoke;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {
+        background: darkslategrey;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n) .box:not(.date-box):nth-of-type(2n):not(.not-available) {
+        background: dimgray;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n+1):not(.not-available) {
+        background: blueviolet;
+    }
+    .calendar-row:not(.calender-heading):nth-of-type(2n+1) .box:not(.date-box):nth-of-type(2n):not(.not-available) {
+        background: greenyellow;
+    }
+
+    .selection-summary {
+        width: 30%;
+        float: left;
+        padding: 1em 2em;
+    }
+    .summary-content {
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .summary-content h1 {
+        padding: 1em 0.5em;
+    }
+    .summary-content div h2 {
+        background: gray;
+        color: white;
         padding: 0.5em;
-        box-sizing: border-box
+    }
+    .summary-content div p {
+        padding: 0.5em 1em 0;
+        font-size: 1.4em;
+    }
+    .summary-content div span {
+        padding: 0.5em 1em 0;
+        font-size: 1.2em;
+    }
+    .summary-buttons {
+        margin-bottom: 1em;
     }
 
     .availability {
         vertical-align: top;
-        min-heignt: 20px;
+        min-height: 20px;
+    }
+
+    .btn {
+        font-size: 2em;
+        height: 36px;
     }
     .carousel-control {
         height: 10%;
         width: 10%;
         background-image: unset !important;
+    }
+    .carousel-indicators {
+        bottom: unset;
+        top: 0.5em;
+        left: 3em;
+    }
+    .carousel-indicators li {
+        margin-top: 4px;
     }
 
 </style>
@@ -96,13 +200,12 @@
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title">{{ page_title }}</h3>
-
                         <div class="card-tools" style="display: block;">
-                            <div class="search-input" style="width: 80%; float: left">
-                                <div class="search-date" style="width: 40%; margin: 0;display: block;float: left;">
+                            <div class="search-input">
+                                <div class="search-date">
                                     <datepicker v-model="state.arrival_date" name="arrival_date"></datepicker>
                                 </div>
-                                <div class="search-spinner" style="width: 50%;display: block;float: left;">
+                                <div class="search-spinner">
                                     <NumberInputSpinner
                                             :min="0"
                                             :max="10"
@@ -112,7 +215,7 @@
                                     ></NumberInputSpinner>
                                 </div>
                             </div>
-                            <div class="search-button" style="width: 20%; margin: 0;display: block; float: left;">
+                            <div class="search-button">
                                 <button class="btn btn-success" @click="checkAvailability">
                                     Search <i class="fa fa-search"></i>
                                 </button>
@@ -121,18 +224,17 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="calendar" style="width: 60%; float: left;">
+                        <div class="calendar" style="width: 70%; float: left;">
                             <div id="myCarousel" class="carousel slide" data-interval="false" data-wrap="false" data-ride="carousel">
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
                                     <li data-target="#myCarousel" v-for="(item, index) in weekly_result" v-bind:data-slide-to="index" :class="{ 'active': index == 0 }"></li>
                                 </ol>
-
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div v-for="(item, index) in weekly_result" class="item" :class="{ 'active': index == 0 }">
                                         <div class="calendar-row calender-heading">
-                                            <span class="middle">Weekly Availability</span>
+                                            <span class="middle">Week #{{index + 1}}</span>
                                         </div>
                                         <div class="calendar-row" v-for="(date_rooms, date) in item">
                                             <div class="calendar-object calendar-day box date-box">
@@ -150,24 +252,26 @@
                                                 <div v-if=" Object.keys(date_rooms).length == 0" class="no-rooms">
                                                     <span class="middle">No Rooms Available</span>
                                                 </div>
-                                                <div class="room box" style="float: left;" v-for="(room, room_no) in date_rooms">
+                                                <div class="room box" :class="{ 'not-available': room.available != 1 }" v-for="(room, room_no) in date_rooms">
                                                     <div v-if="room_dictionary.hasOwnProperty(room_no)">
-                                                        <p>{{ room_dictionary[room_no]['name'] }}</p>
-                                                        <span><i class="fa fa-bed"> </i> {{ room_dictionary[room_no]['bedrooms'] }}</span>
-                                                        <span><i class="fa fa-users"></i> {{ room_dictionary[room_no]['max_guests'] }}</span>
-                                                        <p>
+                                                        <div class="box-title">{{ room_dictionary[room_no]['name'] }}</div>
+                                                        <div class="box-content">
+                                                            <span><i class="fa fa-bed"> </i> {{ room_dictionary[room_no]['bedrooms'] }}</span> |
+                                                            <span><i class="fa fa-users"></i> {{ room_dictionary[room_no]['max_guests'] }}</span>
+                                                        </div>
+                                                        <div>
                                                             <i class="far fa-money-bill-alt"></i>
                                                             {{ booking_property.currency}} {{ (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'] }}
-                                                            ( {{ (room_dictionary[room_no]['tax_inclusive']) ? "Includes Taxes" : "taxes Extra" }} )
-                                                        </p>
-                                                        <div class="availability avail-yes" v-if="room.available == 1">
+                                                            ( {{ (room_dictionary[room_no]['tax_inclusive']) ? "Inc Tax" : " + Tax" }} )
+                                                        </div>
+                                                        <div class="box-content availability avail-yes" v-if="room.available == 1">
                                                             Available
-                                                            <input type="checkbox"
+                                                            <input type="checkbox" v-bind:name="date + room_no"
                                                                    v-if="room.available == 1"
-                                                                   @change="handleChange($event, date, room_no, (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'], room_dictionary[room_no]['tax_inclusive'])"
+                                                                   @change="handleCheckboxChange($event, date, room_no, (room.hasOwnProperty('rate')) ? room.rate : room_dictionary[room_no]['default_rate'], room_dictionary[room_no]['tax_inclusive'])"
                                                                    :disabled="this.bookings_available || (summary.hasOwnProperty('room_no') && summary.room_no !== -1 && summary.room_no !== room_no)">
                                                         </div>
-                                                        <div class="availability avail-no" v-if="room.available != 1">
+                                                        <div class="box-content availability avail-no" v-if="room.available != 1">
                                                             Not Available
                                                         </div>
                                                     </div>
@@ -188,8 +292,8 @@
                                 </a>
                             </div>
                         </div><!-- end of 'calendar class' -->
-                        <div class="selection-summary" style="width: 40%; float: left;">
-                            <div v-if="bookings_available">
+                        <div class="selection-summary">
+                            <div v-if="bookings_available" class="summary-content">
                                 <h1>Summary</h1>
                                 <div>
                                     <h2>Chosen Date of Arrival</h2>
@@ -202,16 +306,19 @@
                                 <div>
                                     <h2>No of nights</h2>
                                     <p>{{summary.dates_picked.length}}</p>
+                                    <span>
+                                        (<span v-for="date in summary.dates_picked">{{date | displayDayOfWeekFull }}, {{date | displayDate }};</span>)
+                                    </span>
                                 </div>
-                                <div>
-                                    <h2>Room Rate (incl taxes)</h2>
+                                <div v-if="summary.room_rates_with_tax !== 0">
+                                    <h2>Room(s) Rate (incl taxes)</h2>
                                     <p>{{summary.room_rates_with_tax}}</p>
                                 </div>
-                                <div>
-                                    <h2>Room Rate (without taxes)</h2>
+                                <div v-if="summary.room_rates_without_tax !== 0">
+                                    <h2>Room(s) Rate (without taxes)</h2>
                                     <p>{{summary.room_rates_without_tax}}</p>
                                 </div>
-                                <div>
+                                <div v-if="summary.room_rates_without_tax !== 0">
                                     <h2>Taxes applied</h2>
                                     <p>{{summary.tax_applied}}</p>
                                 </div>
@@ -219,11 +326,16 @@
                                     <h2>Total Booking Cost</h2>
                                     <p>{{summary.booking_total}}</p>
                                 </div>
-                                <button class="btn btn-success" @click="newEnquiry">
-                                    Enquire <i class="fas fa-user-plus fa-fw"></i>
-                                </button>
+                                <div class="center summary-buttons">
+                                    <button type="button" class="btn btn-danger" @click="clearRoomSelection">
+                                        Clear Selection
+                                    </button> |
+                                    <button type="button" class="btn btn-success" @click="newEnquiry">
+                                        Enquire
+                                    </button>
+                                </div>
                                 <div v-if="enquiry_outcome !== null">
-                                    <h2>Enquiry outcome</h2>
+                                    <h2>Your Enquiry</h2>
                                     <pre>{{enquiry_outcome}}</pre>
                                 </div>
                             </div>
@@ -276,10 +388,14 @@
         data () {
             return {
                 page_title : 'Enquiry calendar',
-                room_dictionary : {},
-                weekly_result: {},
-                selection : {},
-                summary: {
+                booking_property: {},   // holds data of returned properties
+                room_dictionary : {},    // object of rooms retrievable by room_id
+                weekly_result: {},      // List of 6 weeks of dates and bookings from arrival_date. If arrival_date
+                                        // was not a Monday, the closet previous Monday would be selected.
+                selection : {},         // to track the selection. Object should contain dates pointing to the
+                                        // selected room details for that date
+                bookings_available: false, // set to true if  there is any selection.
+                summary: {              // default value of summary
                     "booking_total" : 0,
                     "room_no" : -1,
                     "dates_picked" : [],
@@ -287,20 +403,14 @@
                     "room_rates_without_tax" : 0,
                     "tax_applied" : 0,
                 },
-                booking_property: {},
-                bookings_available: false,
-                arrival_date : "",
-                arrival_date : 0,
-                state : {
+                arrival_date : "",          // record of currently searched arrival date
+                no_of_guests : 0,           // record of currently searched no_of_guests
+                state : {                   // holds current state of search inputs
                     arrival_date : new Date(),
                     no_of_guests : 0,
                 },
-                enquiry_outcome : null,
-                search : new Form({
-                    arrival_date : '',
-                    no_of_guests : '',
-                }),
-                enquiry : {
+                enquiry_outcome : null,     // outcome of the enquiry
+                enquiry : {                 // enquiry for information.
                     first_name : "",
                     last_name : "",
                     email : "",
@@ -308,47 +418,55 @@
             }
         },
         mounted() {
+            // on load..
             this.checkAvailability();
         },
         methods : {
+            // checks if there are rooms matching current search criteria
             checkAvailability() {
-                // console.log("Searched");
-                // console.log(this.search);
+                // clear current selection...
+                this.clearRoomSelection();
+                // then...
                 axios.post('api/availability/search', {
                     "arrival_date" : this.state.arrival_date,
                     "no_of_guests" : this.state.no_of_guests,
                 }).then(({ data }) => {
-                    console.log(data);
-                    // var arrival_date = moment(data.arrival_date);
-                    // var arrival_start_of_week = arrival_date.clone().startOf('isoWeek');
-                    // var end_date = arrival_start_of_week.clone().add(4, 'w').endOf('isoWeek');
-                    // console.log(arrival_date.format('MMMM DD YYYY'));
-                    // console.log(arrival_start_of_week.format('MMMM DD YYYY'));
-                    // console.log(end_date.format('MMMM DD YYYY'));
+                    //  store current search criteria.
                     this.arrival_date = data.arrival_date;
                     this.no_of_guests = data.no_of_guests;
-                    this.$formatter.init(data.arrival_date);
+                    // and property information.
                     this.booking_property = data.property;
                     this.page_title = this.booking_property.name;
+                    // initialse formatter..
+                    this.$formatter.init(data.arrival_date);
+                    // get dictionary of rooms
                     this.room_dictionary = this.$formatter.getRoomDictionary(data);
+                    // and all available room data for 6 weeks...
                     this.weekly_result = this.$formatter.getRoomStatusByWeek(data);
-
-                    console.log(this.room_dictionary);
-                    console.log(this.weekly_result);
-
-                    // console.log(this.$formatter.getDaysBetween(this.$formatter.start_date, this.$formatter.end_date));
                 });
             },
+            // Clear enquiry form data.. this will clear the input in the enquiry modal
+            clearEnquiryFormData() {
+                // reset enquiry data
+                this.enquiry.first_name = "";
+                this.enquiry.last_name = "";
+                this.enquiry.email = "";
+            },
+            // to open the enquiry modal form
             newEnquiry() {
-                // this.enquiry.reset();
+                this.clearEnquiryFormData();
+                // and then show
                 $("#enquire").modal('show');
             },
+            // to close the enquiry modal form
             dismissEnquiryForm() {
-                // this.enquiry.reset();
                 $("#enquire").modal('hide');
             },
+            // Post an enquiry request
             enquireNow() {
-                this.enquiry_outcome == null;
+                //  clear for new enquiry outcome
+                this.clearEnquiryOutcomeData();
+                // then post....
                 axios.post('api/availability/enquire-now', {
                     "room_id" : this.summary.room_no,
                     "arrival_date": this.arrival_date,
@@ -368,26 +486,27 @@
                     console.log(error)
                 });
             },
-            handleChange(e, date, room_no, rate, tax_included) {
-                // console.log(date);
-                // console.log(room_no);
-                // console.log(rate);
-                // console.log(tax_included);
-                if ($(e.target).is(':checked')) {
-                    console.log('adding to selection');
+            // removes the pre tag with enquiry response json
+            clearEnquiryOutcomeData() {
+                this.enquiry_outcome = null;
+            },
+            // when changes to checkbox....
+            handleCheckboxChange(e, date, room_no, rate, tax_included) {
+                if ($(e.target).is(':checked')) { // add to selection if checked..
                     this.selection[date] = {
                         'room_no' : room_no,
                         'rate' : rate,
                         'tax_included' : tax_included,
                     }
-                } else {
-                    console.log('removing from selection');
+                } else { // or remove
                     delete(this.selection[date]);
                 }
-                this.compileSummary();
+                this.clearEnquiryOutcomeData(); // Why? maybe thee old enquiry is no longer valid once anew selection is made.
+                this.compileSummary(); // compile summary based on updated selection information...
             },
+            // Created summary data based on current value of this.selection....
             compileSummary() {
-                /*
+                /*  calculating...
                  * booking total (using tax settings, currency and tax values),
                  * dates picked
                  * number of guests
@@ -412,23 +531,43 @@
                     } else {
                         room_rate_sum_without_tax += date_info.rate;
                         console.log(this.booking_property);
-                        room_rate_taxes_applied += (date_info.rate * this.booking_property.tax)/100;
+                        room_rate_taxes_applied += (date_info.rate * this.booking_property.tax) / 100;
                     }
-                    // console.log(this.selection[date]);
                 }
+                // calculate booking total
                 booking_total = room_rate_sum_without_tax + room_rate_sum_with_tax + room_rate_taxes_applied;
 
-                this.bookings_available = (dates_picked.length > 0) ? true : false;
-
+                if (dates_picked.length > 0) {
+                    this.bookings_available = true; // even if already true...
+                    this.summary = {
+                        "booking_total" : booking_total,
+                        "room_no" : room_no,
+                        "dates_picked" : dates_picked,
+                        "room_rates_with_tax" : room_rate_sum_with_tax,
+                        "room_rates_without_tax" : room_rate_sum_without_tax,
+                        "tax_applied" : room_rate_taxes_applied,
+                    };
+                } else {
+                    this.clearRoomSelectionData();
+                }
+            },
+            // to clear all checkboxes inside the calendar carousel  and the room selection data...
+            clearRoomSelection() {
+                $("#myCarousel input[type='checkbox']").prop('checked', false)
+                this.clearRoomSelectionData();
+            },
+            // To clear data of room selection..
+            clearRoomSelectionData() {
+                this.selection = {};
+                this.bookings_available = false;
                 this.summary = {
-                    "booking_total" : booking_total,
-                    "room_no" : room_no,
-                    "dates_picked" : dates_picked,
-                    "room_rates_with_tax" : room_rate_sum_with_tax,
-                    "room_rates_without_tax" : room_rate_sum_without_tax,
-                    "tax_applied" : room_rate_taxes_applied,
+                    "booking_total" : 0,
+                    "room_no" : -1,
+                    "dates_picked" : [],
+                    "room_rates_with_tax" : 0,
+                    "room_rates_without_tax" : 0,
+                    "tax_applied" : 0,
                 };
-                console.log(this.summary);
             }
         },
     }
