@@ -55,3 +55,8 @@ Once you have the application stack in place:
 ---
 
 ## The way forward if there was more time
+1. Delegated responsibility to smaller dedicated VueJS components and managed communication between them.
+2. Implemented better date handling in both the front end and backend.
+3. Implemented better styling (this is something I take time get just right).
+4. Refactor and modularise code to make it easier to test code.
+5. Add PHPUnit tests.
