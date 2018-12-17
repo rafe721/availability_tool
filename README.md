@@ -61,7 +61,7 @@ The app is single page. On page load, there is a datepicker (set to current date
 ### Selecting rooms & viewing the summary
 1. Once a user looks for rooms matching their preference (date of arrival and nomber of guests), they can travel upto six weeks ahead to look for rooms they like.
 2. Once they choose a room for a day, the can choose the same room for different days as well. Once a room is selected, another room cannot be selected.
-3. When (a room is/rooms are) selected, a summary appears to the right of the calendar showing the selected booking information ().
+3. When (a room is/rooms are) selected, a summary appears to the right of the calendar showing the selected booking information (booking total - using tax settings, currency and tax values; dates picked; number of guests. If tax not included in the price of the room, a sum of taxes for rooms selected is also displayed).
 4. At the bottom of the summary form will be an 'Enquiry' button and a 'clear' button.
 5. The summary block is visible only when there are rooms selected. If all selected rooms are unselected (OR) if the selection was cleared, the summary block will disappear.
 
